@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Freight Load Solutions — Pittsburgh-Based Freight Brokerage</title>
+  <meta name="description" content="Meet the team behind Freight Load Solutions. Based in Pittsburgh, PA — licensed MC# 1596635, bonded, and built on accountability. One contact per load, always.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+
+    /* ══════════════════════════════════════
+       ABOUT PAGE — SPECIFIC STYLES
+    ══════════════════════════════════════ */
+
+    .about-page { background: #F7F8FA; }
+
+    /* ── HERO ── */
+    .about-hero {
+      background: linear-gradient(145deg, #0D1F3C 0%, #1B3A6B 100%);
+      padding: 160px 80px 90px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: rgba(91,184,196,0.07);
+      pointer-events: none;
+    }
+    .about-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 10%;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(232,101,10,0.05);
+      pointer-events: none;
+    }
+    .about-hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-hero .eyebrow {
+      font: 600 11px/1 'Inter', sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5BB8C4;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .about-hero h1 {
+      font: 800 clamp(2rem, 4vw, 3rem)/1.1 'Inter', sans-serif;
+      color: white;
+      margin-bottom: 18px;
+      letter-spacing: normal;
+    }
+    .about-hero p {
+      font: 400 16px/1.75 'Inter', sans-serif;
+      color: rgba(255,255,255,0.6);
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+    .hero-credential-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .hero-pill {
+      font: 500 12px/1 'Inter', sans-serif;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6);
+    }
+    .hero-pill.teal {
+      background: rgba(91,184,196,0.15);
+      border-color: rgba(91,184,196,0.4);
+      color: #5BB8C4;
+    }
+
+    /* Hero right — quick facts card */
+    .hero-facts-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 28px 24px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hero-facts-card .fact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .hero-facts-card .fact-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .hero-facts-card .fact-row:first-child { padding-top: 0; }
+    .fact-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(91,184,196,0.15);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .fact-icon i { font-size: 16px; color: #5BB8C4; }
+    .fact-label {
+      font: 600 11px/1 'Inter', sans-serif;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .fact-value { font: 600 14px/1 'Inter', sans-serif; color: white; }
+
+    /* ── SECTION WRAPPER ── */
+    .about-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 80px 80px 0;
+    }
+    .about-section:last-of-type { padding-bottom: 100px; }
+
+    .section-eyebrow {
+      font: 600 11px/1 'Inter', sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #E8650A;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .section-heading {
+      font: 700 clamp(1.6rem, 3vw, 2.2rem)/1.2 'Inter', sans-serif;
+      color: #0D1F3C;
+      margin-bottom: 10px;
+    }
+    .section-subtext {
+      font: 400 15px/1.75 'Inter', sans-serif;
+      color: #4A5568;
+      max-width: 580px;
+      margin-bottom: 48px;
+    }
+
+    /* ── STATS COUNTER ROW ── */
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .about-stat-card {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .about-stat-card.in-view { opacity: 1; transform: translateY(0); }
+    .about-stat-number {
+      font: 800 2.8rem/1 'Inter', sans-serif;
+      color: #0D1F3C;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .about-stat-number.orange { color: #E8650A; }
+    .about-stat-label {
+      font: 400 13px/1.5 'Inter', sans-serif;
+      color: #8A9BB5;
+    }
+
+    /* ── STORY + TIMELINE ── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .story-text h3 {
+      font: 700 1.4rem/1.3 'Inter', sans-serif;
+      color: #0D1F3C;
+      margin-bottom: 16px;
+    }
+    .story-text p {
+      font: 400 15px/1.8 'Inter', sans-serif;
+      color: #4A5568;
+      margin-bottom: 16px;
+    }
+    .story-text p:last-child { margin-bottom: 0; }
+
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: flex; gap: 16px; }
+    .tl-spine { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: #E8650A;
+      flex-shrink: 0;
+      margin-top: 3px;
+      box-shadow: 0 0 0 3px rgba(232,101,10,0.15);
+    }
+    .tl-line {
+      width: 2px;
+      flex: 1;
+      background: linear-gradient(to bottom, rgba(232,101,10,0.3), rgba(232,101,10,0.05));
+      min-height: 32px;
+    }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-content { padding-bottom: 28px; }
+    .tl-year {
+      font: 700 13px/1 'Inter', sans-serif;
+      color: #E8650A;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .tl-title {
+      font: 600 14px/1.3 'Inter', sans-serif;
+      color: #0D1F3C;
+      margin-bottom: 4px;
+    }
+    .tl-desc {
+      font: 400 13px/1.6 'Inter', sans-serif;
+      color: #8A9BB5;
+    }
+
+    /* ── VALUES ── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .value-card {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .value-card.in-view { opacity: 1; transform: translateY(0); }
+    .value-icon-wrap {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: rgba(91,184,196,0.12);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .value-icon-wrap i { font-size: 20px; color: #5BB8C4; }
+    .value-title {
+      font: 600 16px/1.2 'Inter', sans-serif;
+      color: #0D1F3C;
+      margin-bottom: 8px;
+    }
+    .value-text {
+      font: 400 14px/1.7 'Inter', sans-serif;
+      color: #4A5568;
+    }
+
+    /* ── TEAM ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .team-card {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .team-card.in-view { opacity: 1; transform: translateY(0); }
+
+    .team-photo-wrap {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+    }
+    /* CLIENT: Replace each .team-photo-[name] background with:
+       background-image: url('name.jpg'); background-size: cover; background-position: center top; */
+    .team-photo-giao {
+      background: linear-gradient(160deg, #2a2a2a 0%, #4a4a4a 100%);
+      width: 100%; height: 100%;
+    }
+    .team-photo-pj {
+      background: linear-gradient(160deg, #b8966a 0%, #d4b07a 100%);
+      width: 100%; height: 100%;
+    }
+    .team-photo-farhan {
+      background: linear-gradient(160deg, #b8c4cc 0%, #d0dce8 100%);
+      width: 100%; height: 100%;
+    }
+    .team-photo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 55%;
+      background: linear-gradient(to top, rgba(13,31,60,0.92) 0%, transparent 100%);
+    }
+    .team-photo-name {
+      position: absolute;
+      bottom: 14px; left: 18px;
+      font: 700 18px/1 'Inter', sans-serif;
+      color: white;
+      letter-spacing: 0.01em;
+    }
+    .team-photo-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .team-photo-placeholder i { font-size: 48px; color: rgba(255,255,255,0.15); }
+
+    .team-body { padding: 18px 20px 20px; }
+    .team-role {
+      font: 700 10px/1 'Inter', sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #5BB8C4;
+      margin-bottom: 10px;
+    }
+    .team-bio {
+      font: 400 13px/1.7 'Inter', sans-serif;
+      color: #4A5568;
+      margin-bottom: 16px;
+    }
+    .team-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font: 500 12px/1 'Inter', sans-serif;
+      color: #0D1F3C;
+      background: #F7F8FA;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 999px;
+      padding: 8px 14px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .team-linkedin:hover {
+      background: #0D1F3C;
+      color: white;
+      border-color: #0D1F3C;
+    }
+    .team-linkedin i { font-size: 14px; }
+
+    /* ── OFFICE SECTION ── */
+    .office-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .office-photo-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      height: 340px;
+      position: relative;
+    }
+    /* CLIENT: Replace background with real office photo:
+       background-image: url('office.jpg'); background-size: cover; background-position: center; */
+    .office-photo-bg {
+      width: 100%; height: 100%;
+      background: linear-gradient(145deg, #0D1F3C 0%, #1B3A6B 60%, #2a5a9a 100%);
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px;
+    }
+    .office-photo-bg i { font-size: 40px; color: rgba(255,255,255,0.18); }
+    .office-photo-bg span {
+      font: 600 10px/1 'Inter', sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+    .office-photo-badge {
+      position: absolute;
+      bottom: 16px; left: 16px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+    .office-photo-badge p {
+      font: 600 12px/1.4 'Inter', sans-serif;
+      color: white;
+      margin-bottom: 2px;
+    }
+    .office-photo-badge span {
+      font: 400 11px/1 'Inter', sans-serif;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .office-details-card {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .office-detail-group { margin-bottom: 22px; }
+    .office-detail-group:last-child { margin-bottom: 0; }
+    .office-detail-label {
+      font: 600 10px/1 'Inter', sans-serif;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8A9BB5;
+      margin-bottom: 8px;
+    }
+    .office-detail-value {
+      font: 400 14px/1.6 'Inter', sans-serif;
+      color: #0D1F3C;
+    }
+    .office-detail-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font: 500 14px/1 'Inter', sans-serif;
+      color: #E8650A;
+      text-decoration: none;
+      margin-top: 6px;
+    }
+    .office-detail-link i { font-size: 14px; }
+    .office-detail-link:hover { opacity: 0.8; }
+
+    .office-map-embed {
+      width: 100%;
+      height: 160px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.07);
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: #F7F8FA;
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* CLIENT: Replace the placeholder below with a real Google Maps iframe:
+       <iframe src="https://www.google.com/maps/embed?pb=YOUR_EMBED_ID"
+         width="100%" height="100%" style="border:0" allowfullscreen loading="lazy"></iframe> */
+    .office-map-embed span {
+      font: 400 12px/1 'Inter', sans-serif;
+      color: #8A9BB5;
+    }
+
+    .region-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .region-pill {
+      font: 500 11px/1 'Inter', sans-serif;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: #F7F8FA;
+      border: 1px solid rgba(0,0,0,0.07);
+      color: #4A5568;
+    }
+    .region-pill.featured {
+      background: rgba(91,184,196,0.1);
+      border-color: rgba(91,184,196,0.3);
+      color: #5BB8C4;
+    }
+
+    /* ── CREDENTIALS ── */
+    .creds-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .cred-card {
+      background: white;
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+    .cred-icon-wrap {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      background: rgba(91,184,196,0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+    .cred-icon-wrap i { font-size: 22px; color: #5BB8C4; }
+    .cred-title {
+      font: 600 13px/1.2 'Inter', sans-serif;
+      color: #0D1F3C;
+      margin-bottom: 4px;
+    }
+    .cred-value {
+      font: 400 12px/1.4 'Inter', sans-serif;
+      color: #8A9BB5;
+    }
+
+    /* ── BOTTOM CTA ── */
+    .about-bottom-cta {
+      max-width: 1280px;
+      margin: 80px auto 100px;
+      padding: 0 80px;
+    }
+    .about-bottom-cta-inner {
+      background: #0D1F3C;
+      border-radius: 24px;
+      padding: 56px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .about-cta-text .eyebrow {
+      font: 600 11px/1 'Inter', sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #E8650A;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .about-cta-text h2 {
+      font: 700 clamp(1.5rem, 3vw, 2rem)/1.2 'Inter', sans-serif;
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: normal;
+    }
+    .about-cta-text p {
+      font: 400 13px/1 'Inter', sans-serif;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 0;
+    }
+    .about-cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+    .btn-primary-about {
+      background: #E8650A;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 32px;
+      font: 700 14px/1 'Inter', sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+    .btn-primary-about:hover { background: #d4551a; transform: translateY(-2px); }
+    .btn-phone-about {
+      font: 400 13px/1 'Inter', sans-serif;
+      color: rgba(255,255,255,0.38);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .btn-phone-about:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .about-hero { padding: 140px 48px 80px; }
+      .about-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-facts-card { max-width: 400px; }
+      .about-section { padding: 64px 48px 0; }
+      .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .creds-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-bottom-cta { padding: 0 48px; }
+      .about-bottom-cta-inner { padding: 40px 48px; }
+    }
+
+    @media (max-width: 768px) {
+      .about-hero { padding: 120px 24px 60px; }
+      .about-section { padding: 48px 24px 0; }
+      .about-stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .office-grid { grid-template-columns: 1fr; }
+      .creds-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-bottom-cta { padding: 0 24px; margin-top: 48px; margin-bottom: 64px; }
+      .about-bottom-cta-inner { flex-direction: column; align-items: flex-start; padding: 32px 28px; gap: 24px; }
+      .about-cta-actions { align-items: flex-start; width: 100%; }
+      .btn-primary-about { width: 100%; justify-content: center; }
+    }
+
+  </style>
+</head>
+<body class="about-page">
+
+  <!-- ─── NAVIGATION ─────────────────────────────────────────────── -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Freight Load Solutions — Home">
+      <span class="logo-fls">FLS</span>
+      <span class="logo-full">Freight Load Solutions</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn-nav-outline">Talk to Our Team</a>
+      <a href="consult.html" class="nav-consult-btn">Consult With Us</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-hidden="true" aria-label="Navigation menu">
+    <button class="mobile-close" id="mobile-close" aria-label="Close navigation menu">✕</button>
+    <ul role="list">
+      <li><a href="consult.html" style="color:#E8650A; font-weight:700;">Consult With Us</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#carriers">Carriers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- ─── SECTION 1: HERO ────────────────────────────────────────── -->
+  <section class="about-hero">
+    <div class="about-hero-inner">
+
+      <!-- LEFT: Headline -->
+      <div>
+        <span class="eyebrow">About Freight Load Solutions</span>
+        <h1>Built in Pittsburgh.<br>Moving Freight Everywhere.</h1>
+        <p>FLS was founded on a simple idea: freight brokerage done with real accountability. One contact per load, real answers when you call, and a team that treats your freight like their own.</p>
+        <div class="hero-credential-pills">
+          <span class="hero-pill teal">Est. 2021</span>
+          <span class="hero-pill">Pittsburgh, PA</span>
+          <span class="hero-pill">MC# 1596635</span>
+          <span class="hero-pill">Licensed &amp; Bonded</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: Quick facts glass card -->
+      <div class="hero-facts-card">
+        <div class="fact-row">
+          <div class="fact-icon"><i class="ph-bold ph-map-pin"></i></div>
+          <div>
+            <div class="fact-label">Headquarters</div>
+            <div class="fact-value">Pittsburgh, Pennsylvania</div>
+          </div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon"><i class="ph-bold ph-calendar"></i></div>
+          <div>
+            <div class="fact-label">Founded</div>
+            <div class="fact-value">2021</div>
+          </div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon"><i class="ph-bold ph-truck"></i></div>
+          <div>
+            <div class="fact-label">Coverage</div>
+            <div class="fact-value">48 States — Nationwide</div>
+          </div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon"><i class="ph-bold ph-certificate"></i></div>
+          <div>
+            <div class="fact-label">Authority</div>
+            <div class="fact-value">MC# 1596635 · DOT# 4156576</div>
+          </div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon"><i class="ph-bold ph-phone"></i></div>
+          <div>
+            <div class="fact-label">Direct Line</div>
+            <div class="fact-value">412-212-2243</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── SECTION 2: STATS ──────────────────────────────────────── -->
+  <section class="about-section">
+    <span class="section-eyebrow">By the Numbers</span>
+    <h2 class="section-heading">What Three Years of Doing It Right Looks Like.</h2>
+
+    <div class="stats-grid-open" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 40px;">
+      <div style="padding-right: 48px;">
+        <div style="font: 700 clamp(2.8rem, 5vw, 4rem)/1 'Inter', sans-serif; color: #0D1F3C; letter-spacing: -0.03em; margin-bottom: 12px;">48</div>
+        <div style="font: 400 14px/1.5 'Inter', sans-serif; color: #8A9BB5;">States covered nationwide</div>
+      </div>
+      <div style="padding: 0 48px; border-left: 1px solid rgba(0,0,0,0.08);">
+        <div style="font: 700 clamp(2.8rem, 5vw, 4rem)/1 'Inter', sans-serif; color: #0D1F3C; letter-spacing: -0.03em; margin-bottom: 12px;">1,000+</div>
+        <div style="font: 400 14px/1.5 'Inter', sans-serif; color: #8A9BB5;">Loads available every week</div>
+      </div>
+      <div style="padding: 0 48px; border-left: 1px solid rgba(0,0,0,0.08);">
+        <div style="font: 700 clamp(2.8rem, 5vw, 4rem)/1 'Inter', sans-serif; color: #0D1F3C; letter-spacing: -0.03em; margin-bottom: 12px;">2hr</div>
+        <div style="font: 400 14px/1.5 'Inter', sans-serif; color: #8A9BB5;">Response SLA, guaranteed</div>
+      </div>
+      <div style="padding-left: 48px; border-left: 1px solid rgba(0,0,0,0.08);">
+        <div style="font: 700 clamp(2.8rem, 5vw, 4rem)/1 'Inter', sans-serif; color: #E8650A; letter-spacing: -0.03em; margin-bottom: 12px;">2021</div>
+        <div style="font: 400 14px/1.5 'Inter', sans-serif; color: #8A9BB5;">Founded in Pittsburgh, PA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 3: STORY + TIMELINE ─────────────────────────── -->
+  <section class="about-section">
+    <span class="section-eyebrow">Our Story</span>
+    <h2 class="section-heading">Why We Started FLS.</h2>
+
+    <div class="story-grid">
+
+      <!-- Story text -->
+      <div class="story-text">
+        <p style="font: 400 15px/1.8 'Inter', sans-serif; color: #4A5568; margin-bottom: 16px;">Giao, P.J., and Farhan built FLS after years watching shippers get ghosted and loads fall apart because nobody was accountable. The problem wasn't technology — it was people who didn't pick up the phone.</p>
+        <p style="font: 400 15px/1.8 'Inter', sans-serif; color: #4A5568;">We're not trying to be the biggest broker in America. We're trying to be the most reliable one for the shippers, carriers, and agents who work with us.</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-year">2021 — Founded</div>
+            <div class="tl-title">FLS opens in Pittsburgh, PA</div>
+            <div class="tl-desc">MC authority obtained. First shipper accounts onboarded. Three founders, one mission: accountability on every load.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-year">2022 — Growth</div>
+            <div class="tl-title">Carrier network scales to 48 states</div>
+            <div class="tl-desc">Nationwide dry van coverage established. First 100 shipper accounts onboarded. Carrier vetting process built from the ground up.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <div class="tl-year">2023 — Expansion</div>
+            <div class="tl-title">Agent partnership program launches</div>
+            <div class="tl-desc">Independent freight agents begin plugging into the FLS network. 1,000+ weekly loads milestone reached.</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-spine"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="tl-year">2024 &amp; Beyond</div>
+            <div class="tl-title">Expanding capacity. Same team, same standard.</div>
+            <div class="tl-desc">Growing lanes, growing the network — without growing the distance between us and the people we serve.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── SECTION 4: VALUES ─────────────────────────────────────── -->
+  <section class="about-section">
+    <span class="section-eyebrow">How We Work</span>
+    <h2 class="section-heading">The Four Things We Never Compromise On.</h2>
+    <p class="section-subtext">These aren't marketing lines. They're the operating principles every person at FLS is held to on every load.</p>
+
+    <div class="values-open">
+      <div class="value-row">
+        <div class="value-row-icon"><i class="ph-bold ph-phone-call"></i></div>
+        <div class="value-row-content">
+          <div class="value-row-title">We Answer the Phone</div>
+          <div class="value-row-text">You will always reach a real person. Mon–Fri 8am–6pm ET — and available outside hours for urgent loads.</div>
+        </div>
+      </div>
+      <div class="value-row">
+        <div class="value-row-icon"><i class="ph-bold ph-eye"></i></div>
+        <div class="value-row-content">
+          <div class="value-row-title">Full Visibility, Always</div>
+          <div class="value-row-text">Real-time tracking on every load. Proactive updates when something changes — not a call after the fact.</div>
+        </div>
+      </div>
+      <div class="value-row">
+        <div class="value-row-icon"><i class="ph-bold ph-user-check"></i></div>
+        <div class="value-row-content">
+          <div class="value-row-title">One Contact Per Load</div>
+          <div class="value-row-text">One dedicated person owns your shipment from pickup to proof of delivery. Not a team inbox. A name.</div>
+        </div>
+      </div>
+      <div class="value-row">
+        <div class="value-row-icon"><i class="ph-bold ph-shield-check"></i></div>
+        <div class="value-row-content">
+          <div class="value-row-title">Carriers We Actually Trust</div>
+          <div class="value-row-text">Every carrier is vetted, compliant, and monitored. We know who's driving your load — always.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 5: TEAM ───────────────────────────────────────── -->
+  <section class="about-section">
+    <span class="section-eyebrow">The People Behind Your Freight</span>
+    <h2 class="section-heading">We're Not Just Brokers. We're Accountable to You.</h2>
+    <p class="section-subtext">Every load has a name behind it. Our leadership team is reachable, responsive, and personally invested in making sure your freight moves right.</p>
+
+    <!-- TEAM GRID — 3 columns with photos -->
+    <div class="team-3col" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(0,0,0,0.08); margin-top: 48px;">
+
+      <!-- Giao Nguyen -->
+      <div style="padding: 40px 40px 40px 0; border-right: 1px solid rgba(0,0,0,0.08);">
+        <div style="width: 100%; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; margin-bottom: 24px; background: linear-gradient(160deg, #2a2a2a 0%, #4a4a4a 100%); display: flex; align-items: center; justify-content: center;">
+          <!-- CLIENT: Replace background with Giao's photo:
+               Add style="background-image:url('giao.jpg'); background-size:cover; background-position:center top;"
+               and remove the icon below -->
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div style="font: 700 18px/1.2 'Inter', sans-serif; color: #0D1F3C; margin-bottom: 4px;">Giao Nguyen</div>
+        <div style="font: 600 11px/1 'Inter', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #5BB8C4; margin-bottom: 12px;">Chief Executive Officer</div>
+        <div style="font: 400 14px/1.7 'Inter', sans-serif; color: #8A9BB5; margin-bottom: 16px;">Leads company strategy and shipper relationships. Giao is your first call when something needs to get done — and she picks up.</div>
+        <a href="https://www.linkedin.com/in/giao-nguyen" target="_blank" rel="noopener" style="font: 500 13px/1 'Inter', sans-serif; color: #0D1F3C; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid rgba(0,0,0,0.12); border-radius: 999px; transition: all 0.2s;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+
+      <!-- P.J. Khara -->
+      <div style="padding: 40px 40px; border-right: 1px solid rgba(0,0,0,0.08);">
+        <div style="width: 100%; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; margin-bottom: 24px; background: linear-gradient(160deg, #b8966a 0%, #d4b07a 100%); display: flex; align-items: center; justify-content: center;">
+          <!-- CLIENT: Replace with P.J.'s photo -->
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div style="font: 700 18px/1.2 'Inter', sans-serif; color: #0D1F3C; margin-bottom: 4px;">P.J. Khara</div>
+        <div style="font: 600 11px/1 'Inter', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #5BB8C4; margin-bottom: 12px;">Chief Financial Officer</div>
+        <div style="font: 400 14px/1.7 'Inter', sans-serif; color: #8A9BB5; margin-bottom: 16px;">Keeps operations financially sound and fully compliant — so you never have to worry about who you're working with.</div>
+        <a href="https://www.linkedin.com/in/pj-khara" target="_blank" rel="noopener" style="font: 500 13px/1 'Inter', sans-serif; color: #0D1F3C; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid rgba(0,0,0,0.12); border-radius: 999px; transition: all 0.2s;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+
+      <!-- Farhan Anis -->
+      <div style="padding: 40px 0 40px 40px;">
+        <div style="width: 100%; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; margin-bottom: 24px; background: linear-gradient(160deg, #b8c4cc 0%, #d0dce8 100%); display: flex; align-items: center; justify-content: center;">
+          <!-- CLIENT: Replace with Farhan's photo -->
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.15)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div style="font: 700 18px/1.2 'Inter', sans-serif; color: #0D1F3C; margin-bottom: 4px;">Farhan Anis</div>
+        <div style="font: 600 11px/1 'Inter', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: #5BB8C4; margin-bottom: 12px;">Chief Operating Officer</div>
+        <div style="font: 400 14px/1.7 'Inter', sans-serif; color: #8A9BB5; margin-bottom: 16px;">Runs daily operations and carrier coordination. If your load is moving, Farhan is making sure it's moving right.</div>
+        <a href="https://www.linkedin.com/in/farhan-anis" target="_blank" rel="noopener" style="font: 500 13px/1 'Inter', sans-serif; color: #0D1F3C; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border: 1px solid rgba(0,0,0,0.12); border-radius: 999px; transition: all 0.2s;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+
+    </div>
+    <style>
+    @media (max-width: 768px) {
+      .team-3col { grid-template-columns: 1fr !important; }
+      .team-3col > div { border-right: none !important; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 32px 0 !important; }
+      .team-3col > div:last-child { border-bottom: none; }
+    }
+    </style>
+  </section>
+
+  <!-- ─── SECTION 6: OFFICE ────────────────────────────────────── -->
+  <section class="about-section">
+    <span class="section-eyebrow">Our Office</span>
+    <h2 class="section-heading">Based in Pittsburgh. Running Freight Coast to Coast.</h2>
+
+    <div class="office-grid">
+
+      <!-- Photo left -->
+      <div class="office-photo-wrap">
+        <div class="office-photo-bg">
+          <!-- CLIENT: Once you have an office photo, replace this entire div with:
+               <img src="office.jpg" alt="FLS Pittsburgh office" style="width:100%;height:100%;object-fit:cover;">
+               and remove the icon and span placeholders below. -->
+          <i class="ph-bold ph-buildings"></i>
+          <span>Office photo — replace with real image</span>
+        </div>
+        <div class="office-photo-badge">
+          <p>Freight Load Solutions</p>
+          <span>Pittsburgh, PA</span>
+        </div>
+      </div>
+
+      <!-- Details right -->
+      <div class="office-details-card">
+
+        <div class="office-detail-group">
+          <div class="office-detail-label">Address</div>
+          <!-- CLIENT: Replace with full street address once confirmed -->
+          <div class="office-detail-value">Pittsburgh, Pennsylvania<br>United States</div>
+          <a href="https://maps.google.com/?q=Pittsburgh+PA" target="_blank" rel="noopener" class="office-detail-link">
+            <i class="ph-bold ph-map-pin"></i> Get directions
+          </a>
+        </div>
+
+        <div class="office-detail-group">
+          <div class="office-detail-label">Business Hours</div>
+          <div class="office-detail-value">
+            Monday – Friday · 8:00am – 6:00pm ET<br>
+            <span style="font-size:13px;color:#8A9BB5">Available outside hours for urgent loads</span>
+          </div>
+        </div>
+
+        <div class="office-detail-group">
+          <div class="office-detail-label">Contact</div>
+          <a href="tel:4122122243" class="office-detail-link">
+            <i class="ph-bold ph-phone"></i> 412-212-2243
+          </a>
+          <a href="mailto:info@freightloadsolutions.com" class="office-detail-link" style="margin-top:6px;display:inline-flex;">
+            <i class="ph-bold ph-envelope"></i> info@freightloadsolutions.com
+          </a>
+        </div>
+
+        <div class="office-detail-group">
+          <!-- CLIENT: Replace the div below with a real Google Maps embed:
+               <iframe
+                 src="https://www.google.com/maps/embed?pb=YOUR_EMBED_ID"
+                 width="100%" height="160" style="border:0;border-radius:12px"
+                 allowfullscreen loading="lazy">
+               </iframe> -->
+          <div class="office-map-embed">
+            <span>Embed Google Maps here</span>
+          </div>
+        </div>
+
+        <div class="office-detail-group">
+          <div class="office-detail-label">Coverage from Pittsburgh</div>
+          <div class="region-pills">
+            <span class="region-pill">Northeast</span>
+            <span class="region-pill">Mid-Atlantic</span>
+            <span class="region-pill">Midwest</span>
+            <span class="region-pill">Southeast</span>
+            <span class="region-pill">Southwest</span>
+            <span class="region-pill">West Coast</span>
+            <span class="region-pill featured">48 States Total</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SECTION 7: CREDENTIALS ──────────────────────────────── -->
+  <section class="about-section">
+    <span class="section-eyebrow">Credentials &amp; Compliance</span>
+    <h2 class="section-heading">Licensed, Bonded, and Accountable.</h2>
+    <p class="section-subtext">We're fully licensed and compliant — so you can move freight with confidence and never worry about who you're working with.</p>
+
+    <div class="creds-open">
+      <div class="cred-row">
+        <div class="cred-row-icon"><i class="ph-bold ph-certificate"></i></div>
+        <div class="cred-row-title">MC Authority</div>
+        <div class="cred-row-text">MC# 1596635 — Active freight broker authority</div>
+      </div>
+      <div class="cred-row">
+        <div class="cred-row-icon"><i class="ph-bold ph-truck"></i></div>
+        <div class="cred-row-title">DOT Number</div>
+        <div class="cred-row-text">DOT# 4156576 — Registered with FMCSA</div>
+      </div>
+      <div class="cred-row">
+        <div class="cred-row-icon"><i class="ph-bold ph-shield"></i></div>
+        <div class="cred-row-title">Surety Bond</div>
+        <div class="cred-row-text">BMC-84 bonded — $75,000 freight broker bond</div>
+      </div>
+      <div class="cred-row">
+        <div class="cred-row-icon"><i class="ph-bold ph-lock"></i></div>
+        <div class="cred-row-title">Cargo Insurance</div>
+        <div class="cred-row-text">Fully insured — Cargo &amp; liability covered</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BOTTOM CTA ────────────────────────────────────────────── -->
+  <div class="about-bottom-cta">
+    <div class="about-bottom-cta-inner">
+      <div class="about-cta-text">
+        <span class="eyebrow">Ready to work with us?</span>
+        <h2>A team that actually picks up the phone.</h2>
+        <p>Mon–Fri 8am–6pm ET · Pittsburgh, PA · MC# 1596635</p>
+      </div>
+      <div class="about-cta-actions">
+        <a href="index.html#contact" class="btn-primary-about">
+          Start Moving Freight <i class="ph-bold ph-arrow-right"></i>
+        </a>
+        <a href="tel:4122122243" class="btn-phone-about">
+          <i class="ph-bold ph-phone"></i> 412-212-2243
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ──────────────────────────────────────────────── -->
+  <footer class="site-footer">
+
+    <div class="footer-cta-bar">
+      <p class="footer-cta-line">Don't let your freight sit. Call us now.</p>
+      <a href="tel:4122122243" class="footer-cta-phone">412-212-2243</a>
+      <p class="footer-cta-sub">Mon–Fri, 8am–6pm ET · Pittsburgh, PA</p>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="footer-logo-row">
+          <span class="footer-logo-mark" aria-hidden="true"></span>
+          <span class="footer-logo-text">FREIGHT LOAD SOLUTIONS</span>
+        </div>
+        <p class="footer-tagline">A licensed freight brokerage dedicated to dry van freight for the packaging and manufacturing industry.</p>
+        <div class="footer-cred-pills">
+          <span class="footer-cred-pill">MC# 1596635</span>
+          <span class="footer-cred-pill">DOT# 4156576</span>
+          <span class="footer-cred-pill">Surety Bonded</span>
+          <span class="footer-cred-pill">Cargo Insured</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-heading">Services</p>
+        <ul class="footer-links">
+          <li><a href="services.html#dry-van">Full Truckload</a></li>
+          <li><a href="services.html#partial-ltl">LTL</a></li>
+          <li><a href="services.html#expedited">Expedited</a></li>
+          <li><a href="index.html#services">Intermodal</a></li>
+          <li><a href="services.html#agent-services">Agent Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-heading">Company</p>
+        <ul class="footer-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="index.html#why-fls">Why FLS</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="consult.html">Consult With Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-heading">Contact</p>
+        <a href="tel:4122122243" class="footer-contact-link">(412) 212-2243</a>
+        <a href="mailto:info@freightloadsolutions.com" class="footer-contact-link">info@freightloadsolutions.com</a>
+        <p class="footer-contact-text">3707 Forbes Ave<br />Pittsburgh, PA 15213</p>
+        <p class="footer-contact-text">Mon–Fri 8AM–6PM EST</p>
+        <p class="footer-contact-text">After Hours: 24/7 Available</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon" aria-label="LinkedIn"><i class="ph-bold ph-linkedin-logo"></i></a>
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="ph-bold ph-facebook-logo"></i></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><i class="ph-bold ph-youtube-logo"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <p class="footer-copy">&copy; 2026 Freight Load Solutions LLC. All rights reserved.</p>
+      <div class="footer-legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
+
+  <!-- Mobile Sticky CTA Bar -->
+  <div class="mobile-sticky-bar" aria-label="Quick contact">
+    <a href="tel:4122122243" class="mobile-sticky-call">&#128222; Call Now</a>
+    <a href="index.html#contact" class="mobile-sticky-quote">Get a Quote</a>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    /* ── ABOUT PAGE: scroll animations + stat counters ── */
+    (function () {
+      if (!document.querySelector('.about-page')) return;
+
+      if (!window.IntersectionObserver) {
+        document.querySelectorAll('.stat-item, .value-row, .team-row, .cred-row').forEach(function (el) {
+          el.classList.add('in-view');
+        });
+        return;
+      }
+
+      /* ── Fade-in for open layout rows ── */
+      var fadeEls = document.querySelectorAll('.stat-item, .value-row, .team-row, .cred-row');
+      var fadeObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry, i) {
+          if (entry.isIntersecting) {
+            (function (target, delay) {
+              setTimeout(function () { target.classList.add('in-view'); }, delay);
+            })(entry.target, i * 80);
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      fadeEls.forEach(function (el) { fadeObserver.observe(el); });
+
+      /* stats counter removed — numbers are hardcoded static HTML */
+
+    })();
+  </script>
+</body>
+</html>

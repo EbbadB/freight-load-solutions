@@ -2719,3 +2719,284 @@ section,
   padding-bottom: clamp(64px, 8vw, 112px);
 }
 
+/* ═══════════════════════════════════════════════════
+   GLOBAL MOBILE RESPONSIVENESS — added for all pages
+═══════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* Stats grids on index + about */
+  .stats-grid-open {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0 !important;
+  }
+  .stats-grid-open > div {
+    padding: 24px 0 !important;
+    border-left: none !important;
+    border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+  }
+  .stats-grid-open > div:nth-child(even) {
+    border-left: 1px solid rgba(0,0,0,0.08) !important;
+    padding-left: 24px !important;
+  }
+  .stats-grid-open > div:last-child,
+  .stats-grid-open > div:nth-last-child(2):nth-child(odd) {
+    border-bottom: none !important;
+  }
+
+  /* Service cards on homepage */
+  .services-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Team 3-col on about */
+  .team-3col {
+    grid-template-columns: 1fr !important;
+  }
+  .team-3col > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+    padding: 32px 0 !important;
+  }
+  .team-3col > div:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Section padding — prevent 80px sides on mobile */
+  .about-section,
+  .contact-body,
+  .quote-body,
+  .consult-body,
+  .book-body {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  /* Hero sections on all pages */
+  .about-hero,
+  .contact-hero,
+  .consult-hero,
+  .quote-hero,
+  .services-hero {
+    padding: 120px 24px 56px !important;
+  }
+
+  /* Services page sidebar stacks on top */
+  .services-body {
+    grid-template-columns: 1fr !important;
+    padding: 32px 24px 64px !important;
+  }
+  .services-sidebar {
+    position: static !important;
+  }
+  .sidebar-card {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    padding: 12px 16px !important;
+    align-items: center !important;
+  }
+  .sidebar-label { display: none !important; }
+  .sidebar-nav-link {
+    padding: 7px 14px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+    margin-bottom: 0 !important;
+  }
+  .sidebar-divider { display: none !important; }
+  .sidebar-phone-card { display: none !important; }
+
+  /* Service blocks on services page */
+  .service-block,
+  .agent-block {
+    border-radius: 16px !important;
+  }
+  .block-header {
+    padding: 24px 20px 20px !important;
+  }
+  .block-body {
+    padding: 20px !important;
+  }
+  .block-cta {
+    padding: 16px 20px !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+  .steps-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .step-item:nth-child(2) { border-right: none !important; }
+  .step-item:nth-child(3) {
+    border-top: 1px solid rgba(0,0,0,0.06) !important;
+    border-right: 1px solid rgba(0,0,0,0.06) !important;
+  }
+  .step-item:nth-child(4) {
+    border-top: 1px solid rgba(0,0,0,0.06) !important;
+  }
+  .detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  /* About page specifics */
+  .about-hero-inner {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .hero-facts-card { display: none !important; }
+  .story-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .values-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .office-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .creds-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+  .about-bottom-cta {
+    padding: 0 24px !important;
+    margin-bottom: 48px !important;
+  }
+  .about-bottom-cta-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 28px !important;
+    gap: 20px !important;
+  }
+  .about-cta-actions {
+    align-items: flex-start !important;
+    width: 100% !important;
+  }
+  .btn-primary-about {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Contact page */
+  .quick-strip {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .contact-main {
+    grid-template-columns: 1fr !important;
+  }
+  .form-card { padding: 24px 20px !important; }
+  .field-row { grid-template-columns: 1fr !important; }
+
+  /* Consult page */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .calendar-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .session-tabs { flex-wrap: wrap !important; }
+  .expect-section { padding: 24px !important; }
+  .steps-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 24px !important;
+  }
+  .steps-row::before { display: none !important; }
+  .faq-grid { grid-template-columns: 1fr !important; }
+  .consult-bottom-cta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 28px !important;
+    gap: 20px !important;
+  }
+  .cta-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .btn-cta-p, .btn-cta-g {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  .footer-inner {
+    padding: 48px 24px 40px !important;
+  }
+
+  /* General padding fix for any section with 80px side padding */
+  [style*="padding: 0 80px"],
+  [style*="padding: 48px 80px"],
+  [style*="padding: 60px 80px"],
+  [style*="padding: 80px 80px"],
+  [style*="padding: 100px 80px"] {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  /* Bottom CTA blocks */
+  .book-bottom-cta,
+  .quote-bottom-cta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 28px 24px !important;
+    gap: 20px !important;
+    border-radius: 16px !important;
+  }
+
+  /* Prevent horizontal overflow */
+  body { overflow-x: hidden !important; }
+  img, video, iframe, svg { max-width: 100% !important; }
+}
+
+/* Tablet — 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .about-hero { padding: 140px 40px 72px !important; }
+  .contact-hero { padding: 140px 40px 72px !important; }
+  .consult-hero { padding: 140px 40px 72px !important; }
+  .services-hero { padding: 140px 40px 72px !important; }
+
+  .about-section { padding: 64px 40px 0 !important; }
+  .contact-body { padding: 40px 40px 80px !important; }
+  .consult-body { padding: 40px 40px 80px !important; }
+  .services-body { padding: 40px 40px 80px !important; }
+
+  .stats-grid-open { grid-template-columns: repeat(2, 1fr) !important; }
+  .creds-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .team-3col { gap: 0 !important; }
+  .about-bottom-cta { padding: 0 40px !important; }
+  .about-bottom-cta-inner { padding: 36px 40px !important; }
+
+  .services-body {
+    grid-template-columns: 180px 1fr !important;
+    gap: 32px !important;
+  }
+
+  [style*="padding: 0 80px"],
+  [style*="padding: 48px 80px"],
+  [style*="padding: 60px 80px"],
+  [style*="padding: 80px 80px"] {
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+}
+
+/* Small phones — below 400px */
+@media (max-width: 400px) {
+  .stats-grid-open > div div:first-child,
+  .open-num {
+    font-size: 2.2rem !important;
+  }
+  .hero-facts-card { display: none !important; }
+  .team-3col > div { padding: 24px 0 !important; }
+  .svc-card .svc-photo { height: 180px !important; }
+}
+

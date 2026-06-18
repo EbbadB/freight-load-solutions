@@ -288,7 +288,22 @@
     </div>
     <style>
     @media (max-width: 768px) {
-      .services-card-grid { grid-template-columns: 1fr !important; }
+      .services-card-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+      .stats-grid-open { grid-template-columns: repeat(2, 1fr) !important; }
+      .stats-grid-open > div {
+        padding: 20px 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+      }
+      .stats-grid-open > div:nth-child(even) {
+        border-left: 1px solid rgba(0,0,0,0.08) !important;
+        padding-left: 20px !important;
+      }
+      .stats-grid-open > div:last-child,
+      .stats-grid-open > div:nth-last-child(2):nth-child(odd) {
+        border-bottom: none !important;
+      }
     }
     </style>
   </section>

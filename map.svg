@@ -1,4 +1,10 @@
 <svg viewBox="0 0 959 593" xmlns="http://www.w3.org/2000/svg" class="map-svg" aria-label="United States Coverage Map">
+  <style>
+    .state { fill: #5BB8C4; stroke: white; stroke-width: 1; }
+    .state:hover { fill: #4aa8b4; }
+    .hq-dot { fill: #E8650A; }
+    .pulse-ring-1, .pulse-ring-2 { stroke: #E8650A; }
+  </style>
   <g id="states">
     <path class="state" data-name="Washington"     d="M 75,63 L 207,63 L 215,80 L 212,125 L 190,140 L 148,145 L 120,150 L 92,135 L 78,115 Z"/>
     <path class="state" data-name="Oregon"         d="M 78,115 L 92,135 L 120,150 L 148,145 L 190,140 L 212,125 L 215,160 L 215,205 L 185,215 L 130,248 L 97,258 L 72,240 L 75,180 Z"/>

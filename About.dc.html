@@ -133,7 +133,7 @@
         <sc-for list="{{ team }}" as="m" hint-placeholder-count="3">
           <div data-reveal="" style="transition:transform .3s" style-hover="transform:translateY(-6px)">
             <div style="position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#e7e3e3;margin-bottom:18px">
-              <image-slot id="{{ m.slotId }}" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+              <image-slot id="{{ m.slotId }}" src="{{ m.img }}" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
             </div>
             <div style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:21px;letter-spacing:-.015em">{{ m.name }}</div>
             <div style="margin-top:4px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#DA6018">{{ m.title }}</div>
@@ -409,9 +409,9 @@ class Component extends DCLogic {
         { title: 'Carriers We Actually Trust', body: "Every carrier is vetted, compliant, and monitored. We know who's driving your load — always." }
       ],
       team: [
-        { name: 'Giao Nguyen', title: 'Chief Executive Officer', bio: 'Leads company strategy and shipper relationships. Giao is your first call when something needs to get done — and she picks up.', linkedin: 'https://www.linkedin.com/in/giao-nguyen', slotId: 'fls-team-giao' },
-        { name: 'P.J. Khara', title: 'Chief Financial Officer', bio: 'Keeps operations financially sound and fully compliant — so you never have to worry about who you\u2019re working with.', linkedin: 'https://www.linkedin.com/in/pj-khara', slotId: 'fls-team-pj' },
-        { name: 'Farhan Anis', title: 'Chief Operating Officer', bio: "Runs daily operations and carrier coordination. If your load is moving, Farhan is making sure it's moving right.", linkedin: 'https://www.linkedin.com/in/farhan-anis', slotId: 'fls-team-farhan' }
+        { name: 'Giao Nguyen', title: 'Chief Executive Officer', bio: 'Leads company strategy and shipper relationships. Giao is your first call when something needs to get done — and she picks up.', linkedin: 'https://www.linkedin.com/in/giao-nguyen', slotId: 'fls-team-giao', img: 'team-giao-nguye.jpg' },
+        { name: 'P.J. Khara', title: 'Chief Financial Officer', bio: 'Keeps operations financially sound and fully compliant — so you never have to worry about who you\u2019re working with.', linkedin: 'https://www.linkedin.com/in/pj-khara', slotId: 'fls-team-pj', img: 'team-pj-khara.jpg' },
+        { name: 'Farhan Anis', title: 'Chief Operating Officer', bio: "Runs daily operations and carrier coordination. If your load is moving, Farhan is making sure it's moving right.", linkedin: 'https://www.linkedin.com/in/farhan-anis', slotId: 'fls-team-farhan', img: 'team-farhan-anis.jpg' }
       ],
       regions: ['Northeast', 'Mid-Atlantic', 'Midwest', 'Southeast', 'Southwest', 'West Coast', '48 States Total'],
       credentials: [

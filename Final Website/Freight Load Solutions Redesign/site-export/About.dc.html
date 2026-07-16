@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  @font-face{font-family:'Overused Grotesk';src:url('https://cdn.jsdelivr.net/gh/RandomMaerks/Overused-Grotesk/fonts/variable/OverusedGrotesk-VF.ttf') format('truetype-variations');font-weight:300 900;font-display:swap}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#F4F2F2;color:#1D2128;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  a:hover{color:inherit}
+  img{display:block;max-width:100%}
+  ::selection{background:#FF9E20;color:#1D2128}
+  ::-webkit-scrollbar{height:0;width:0}
+  @keyframes fls-marquee{to{transform:translateX(-50%)}}
+  @keyframes fls-pan{0%{transform:scale(1.06)}100%{transform:scale(1.16) translate(-1.5%,-1%)}}
+</style>
+</helmet>
+
+<div ref="{{ setRoot }}" style="overflow-x:hidden;background:#F4F2F2">
+
+  <!-- ===================== NAV ===================== -->
+  <nav data-screen-label="Nav" style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;justify-content:space-between;gap:20px;padding:14px clamp(16px,2.2vw,34px);background:rgba(29,33,40,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(237,237,237,.09)">
+    <a href="Freight Load Solutions.dc.html" style="display:flex;align-items:center;gap:10px;flex-shrink:0;white-space:nowrap">
+      <img src="./fls-logo.png" alt="FLS" style="height:26px;width:auto;display:block;flex-shrink:0">
+      <span style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,237,237,.5);border-left:1px solid rgba(237,237,237,.2);padding-left:10px">Freight&nbsp;Load&nbsp;Solutions</span>
+    </a>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2px">
+      <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="4">
+        <a href="{{ n.href }}" style="font-family: Inter; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 9px 14px; border-radius: 8px; color: rgba(237,237,237,.78); transition: background .25s,color .25s" style-hover="background:rgba(237,237,237,.08);color:#F4F2F2">{{ n.label }}</a>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="Freight Load Solutions.dc.html#contact" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: rgba(237,237,237,.08); backdrop-filter: blur(4px); transition: background .25s,transform .25s" style-hover="background:rgba(237,237,237,.16);transform:translateY(-1px)">Talk to Our Team</a>
+      <a href="Consult.dc.html" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: #FF9E20; color: #1D2128; transition: transform .25s,box-shadow .25s" style-hover="transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.5)">Consult With Us</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header data-screen-label="About Hero" style="position:relative;padding:clamp(140px,16vw,196px) clamp(16px,2.2vw,34px) clamp(56px,7vw,88px)">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="display:inline-flex;align-items:center;gap:9px;font-family:Inter;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(21,21,21,.55);margin-bottom:20px"><span style="width:6px;height:6px;border-radius:50%;background:#FF9E20"></span>About Freight Load Solutions</div>
+      <h1 data-reveal="" data-reveal-delay="60" style="margin:0;max-width:16ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,5.4vw,74px);line-height:1.02;letter-spacing:-.03em;color:#1D2128">Built in Pittsburgh. Moving Freight Everywhere.</h1>
+      <p data-reveal="" data-reveal-delay="120" style="margin:22px 0 0;max-width:58ch;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:rgba(21,21,21,.66)">FLS was founded on a simple idea: freight brokerage done with real accountability. One contact per load, real answers when you call, and a team that treats your freight like their own.</p>
+      <div data-reveal="" data-reveal-delay="180" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px">
+        <sc-for list="{{ heroChips }}" as="c" hint-placeholder-count="4">
+          <span style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;color:rgba(21,21,21,.6);background:#FFFFFF;border:1px solid rgba(21,21,21,.1);border-radius:100px;padding:8px 16px">{{ c }}</span>
+        </sc-for>
+      </div>
+      <div data-reveal="" data-reveal-delay="240" style="margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(21,21,21,.1);border:1px solid rgba(21,21,21,.1);border-radius:14px;overflow:hidden">
+        <sc-for list="{{ quickFacts }}" as="q" hint-placeholder-count="5">
+          <div style="background:#FFFFFF;padding:22px 24px">
+            <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.46)">{{ q.label }}</div>
+            <div style="margin-top:8px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:18px;letter-spacing:-.01em">{{ q.value }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== BY THE NUMBERS ===================== -->
+  <section data-screen-label="Stats" style="background:#1D2128;color:#F4F2F2;padding:clamp(56px,8vw,90px) clamp(16px,2.2vw,34px)">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,237,237,.55);margin-bottom:16px">By the Numbers</div>
+      <h2 data-reveal="" data-reveal-delay="60" style="margin:0 0 40px;max-width:20ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.06;letter-spacing:-.025em">What Three Years of Doing It Right Looks Like.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:clamp(24px,4vw,48px)">
+        <sc-for list="{{ statNumbers }}" as="s" hint-placeholder-count="4">
+          <div data-reveal="">
+            <div style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(38px,4.4vw,58px);line-height:.9;letter-spacing:-.04em">{{ s.num }}</div>
+            <div style="margin-top:12px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(237,237,237,.56)">{{ s.label }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OUR STORY ===================== -->
+  <section data-screen-label="Story" style="background:#FFFFFF;padding:clamp(64px,9vw,120px) clamp(16px,2.2vw,34px)">
+    <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(32px,5vw,72px);align-items:center;margin-bottom:clamp(56px,7vw,90px)">
+      <div data-reveal="" style="position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#e7e3e3">
+        <image-slot id="fls-about-story" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+      </div>
+      <div data-reveal="" data-reveal-delay="80">
+        <div style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#DA6018;margin-bottom:16px">Our Story</div>
+        <h2 style="margin:0;max-width:14ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.08;letter-spacing:-.02em">Why We Started FLS.</h2>
+        <p style="margin:22px 0 0;max-width:52ch;font-size:16px;line-height:1.65;color:rgba(21,21,21,.66)">Giao, P.J., and Farhan built FLS after years watching shippers get ghosted and loads fall apart because nobody was accountable. The problem wasn't technology — it was people who didn't pick up the phone.</p>
+        <p style="margin:16px 0 0;max-width:52ch;font-size:16px;line-height:1.65;color:rgba(21,21,21,.66)">We're not trying to be the biggest broker in America. We're trying to be the most reliable one for the shippers, carriers, and agents who work with us.</p>
+      </div>
+    </div>
+    <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="4">
+        <div data-reveal="" data-card="" style="background:#F4F2F2;border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:10px;transition:transform .3s" style-hover="transform:translateY(-6px)">
+          <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#215E61">{{ t.year }}</div>
+          <div style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:19px;letter-spacing:-.015em">{{ t.title }}</div>
+          <div style="font-size:14px;line-height:1.55;color:rgba(21,21,21,.6)">{{ t.body }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===================== HOW WE WORK ===================== -->
+  <section data-screen-label="Principles" style="background:#F4F2F2;padding:clamp(64px,9vw,120px) clamp(16px,2.2vw,34px)">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#DA6018;margin-bottom:16px">How We Work</div>
+      <h2 data-reveal="" data-reveal-delay="60" style="margin:0 0 40px;max-width:20ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.06;letter-spacing:-.025em">The Four Things We Never Compromise On.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+        <sc-for list="{{ principles }}" as="p" hint-placeholder-count="4">
+          <div data-reveal="" data-card="" style="background:#FFFFFF;border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:12px;min-height:180px;box-shadow:0 10px 28px rgba(21,21,21,.05);transition:transform .3s" style-hover="transform:translateY(-6px)">
+            <div style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:20px;letter-spacing:-.015em">{{ p.title }}</div>
+            <div style="font-size:15px;line-height:1.6;color:rgba(21,21,21,.62)">{{ p.body }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TEAM ===================== -->
+  <section data-screen-label="Team" style="background:#FFFFFF;padding:clamp(64px,9vw,120px) clamp(16px,2.2vw,34px)">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#215E61;margin-bottom:16px">The People Behind Your Freight</div>
+      <h2 data-reveal="" data-reveal-delay="60" style="margin:0 0 44px;max-width:24ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.06;letter-spacing:-.025em">We're Not Just Brokers. We're Accountable to You.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(24px,3vw,40px)">
+        <sc-for list="{{ team }}" as="m" hint-placeholder-count="3">
+          <div data-reveal="" style="transition:transform .3s" style-hover="transform:translateY(-6px)">
+            <div style="position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background:#e7e3e3;margin-bottom:18px">
+              <image-slot id="{{ m.slotId }}" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+            </div>
+            <div style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:21px;letter-spacing:-.015em">{{ m.name }}</div>
+            <div style="margin-top:4px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#DA6018">{{ m.title }}</div>
+            <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:rgba(21,21,21,.62)">{{ m.bio }}</p>
+            <a href="{{ m.linkedin }}" style="display:inline-block;margin-top:12px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#215E61;border-bottom:1px solid rgba(33,94,97,.4)">Connect on LinkedIn</a>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OFFICE ===================== -->
+  <section data-screen-label="Office" style="background:#F4F2F2;padding:clamp(64px,9vw,120px) clamp(16px,2.2vw,34px)">
+    <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(32px,5vw,72px);align-items:center">
+      <div data-reveal="" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="position:relative;grid-row:1 / 3;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:#e7e3e3">
+          <image-slot id="fls-about-office" shape="rect" placeholder="Click or drop exterior photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+        </div>
+        <div style="position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#e7e3e3">
+          <image-slot id="fls-about-office-2" shape="rect" placeholder="Click or drop interior photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+        </div>
+        <div style="position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#e7e3e3">
+          <image-slot id="fls-about-office-3" shape="rect" placeholder="Click or drop team-at-work photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+        </div>
+      </div>
+      <div data-reveal="" data-reveal-delay="80">
+        <div style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#DA6018;margin-bottom:16px">Our Office</div>
+        <h2 style="margin:0;max-width:16ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.08;letter-spacing:-.02em">Based in Pittsburgh. Running Freight Coast to Coast.</h2>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-top:26px">
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.46)">Address</div>
+            <div style="margin-top:6px;font-size:16px;line-height:1.5">Pittsburgh, Pennsylvania<br>United States</div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.46)">Business Hours</div>
+            <div style="margin-top:6px;font-size:16px;line-height:1.5">Monday–Friday · 8:00am–6:00pm ET<br><span style="color:rgba(21,21,21,.56)">Available outside hours for urgent loads</span></div>
+          </div>
+          <div>
+            <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.46)">Contact</div>
+            <div style="margin-top:6px;font-size:16px;line-height:1.5"><a href="tel:4122122243">412-212-2243</a> · <a href="mailto:info@freightloadsolutions.com">info@freightloadsolutions.com</a></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:26px">
+          <sc-for list="{{ regions }}" as="r" hint-placeholder-count="6">
+            <span style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;color:rgba(21,21,21,.56);border:1px solid rgba(21,21,21,.14);border-radius:100px;padding:8px 16px;background:#FFFFFF">{{ r }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CREDENTIALS ===================== -->
+  <section data-screen-label="Credentials" style="background:#FFFFFF;padding:clamp(64px,9vw,120px) clamp(16px,2.2vw,34px)">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#215E61;margin-bottom:16px">Credentials &amp; Compliance</div>
+      <h2 data-reveal="" data-reveal-delay="60" style="margin:0 0 40px;max-width:22ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.06;letter-spacing:-.025em">Licensed, Bonded, and Accountable.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:rgba(21,21,21,.1);border:1px solid rgba(21,21,21,.1);border-radius:14px;overflow:hidden">
+        <sc-for list="{{ credentials }}" as="c" hint-placeholder-count="4">
+          <div style="background:#F4F2F2;padding:26px 24px">
+            <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.46)">{{ c.label }}</div>
+            <div style="margin-top:8px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:17px;letter-spacing:-.01em">{{ c.value }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section data-screen-label="CTA" style="position:relative;min-height:clamp(360px,42vw,540px);display:flex;align-items:center;overflow:hidden;background:#171b22">
+    <div id="fls-cta-media" style="position:absolute;inset:0;overflow:hidden" onClick="{{ pickCtaVideo }}" onDragOver="{{ ctaDragOver }}" onDrop="{{ ctaDrop }}">
+      <div style="position:absolute;inset:-6%;animation:fls-pan 24s ease-in-out infinite alternate;background:repeating-linear-gradient(0deg,rgba(0,0,0,.32) 0 1px,transparent 1px 34px),repeating-linear-gradient(90deg,rgba(0,0,0,.32) 0 1px,transparent 1px 60px),linear-gradient(160deg,#242017,#1a1c20 55%,#171b22)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.85),rgba(8,9,11,.35) 60%,rgba(8,9,11,.6))"></div>
+    </div>
+    <div style="position:relative;max-width:1600px;margin:0 auto;padding:0 clamp(16px,2.2vw,34px);pointer-events:none">
+      <div data-reveal="" style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,237,237,.6);margin-bottom:20px">Ready to Work With Us?</div>
+      <h2 data-reveal="" data-reveal-delay="60" style="margin:0;max-width:16ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(30px,4.4vw,58px);line-height:1.04;letter-spacing:-.03em">A team that actually picks up the phone.</h2>
+      <p data-reveal="" data-reveal-delay="120" style="margin:18px 0 0;font-size:15px;color:rgba(237,237,237,.62)">Mon–Fri 8am–6pm ET · Pittsburgh, PA · MC# 1596635</p>
+      <div data-reveal="" data-reveal-delay="180" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:30px;pointer-events:auto">
+        <a href="Freight Load Solutions.dc.html#contact" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:15px 26px;border-radius:8px;background:#FF9E20;color:#1D2128;transition:transform .25s" style-hover="transform:translateY(-2px)">Start Moving Freight</a>
+        <a href="tel:4122122243" style="font-size:15px;color:rgba(237,237,237,.7);border-bottom:1px solid rgba(237,237,237,.4)">412-212-2243</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer data-screen-label="Footer" style="background:#14171d;color:#F4F2F2;padding:clamp(56px,8vw,96px) clamp(16px,2.2vw,34px) 36px">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding-bottom:clamp(40px,6vw,72px);border-bottom:1px solid rgba(237,237,237,.12)">
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,237,237,.5);margin-bottom:14px">Stay in the loop</div>
+          <h2 style="margin:0;max-width:18ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(26px,3vw,42px);line-height:1.02;letter-spacing:-.03em">Don't let your freight sit. Call us now.</h2>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:rgba(237,237,237,.05);border:1px solid rgba(237,237,237,.16);border-radius:100px;padding:6px 6px 6px 20px;min-width:min(360px,100%)">
+          <input type="email" placeholder="Enter your email" style="flex:1;background:transparent;border:none;color:#F4F2F2;font-family:inherit;font-size:15px;padding:8px 0">
+          <button style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;border:none;border-radius:100px;background:#FF9E20;color:#1D2128;cursor:pointer;transition:transform .25s" style-hover="transform:translateX(2px)">Subscribe →</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(24px,4vw,52px);padding:clamp(40px,6vw,72px) 0">
+        <div style="min-width:220px">
+          <img src="./fls-logo.png" alt="FLS" style="height:28px;width:auto;display:block;margin-bottom:16px">
+          <p style="margin:0;max-width:34ch;font-size:15px;line-height:1.6;color:rgba(237,237,237,.56)">A licensed freight brokerage dedicated to dry van freight for the packaging and manufacturing industry.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="4">
+              <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(237,237,237,.48);border:1px solid rgba(237,237,237,.12);border-radius:6px;padding:6px 10px">{{ c }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Services</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ footServices }}" as="f" hint-placeholder-count="5">
+              <a href="{{ f.href }}" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Company</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ footCompany }}" as="f" hint-placeholder-count="6">
+              <a href="{{ f.href }}" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;color:rgba(237,237,237,.72)">
+            <a href="tel:4122122243" style="transition:color .25s" style-hover="color:#F4F2F2">(412) 212-2243</a>
+            <a href="mailto:info@freightloadsolutions.com" style="transition:color .25s" style-hover="color:#F4F2F2">info@freightloadsolutions.com</a>
+            <div style="line-height:1.5">3707 Forbes Ave<br>Pittsburgh, PA 15213</div>
+            <div style="color:rgba(237,237,237,.46)">Mon–Fri 8AM–6PM EST</div>
+            <div style="color:rgba(237,237,237,.46)">After Hours: 24/7 Available</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:26px;border-top:1px solid rgba(237,237,237,.12);font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;color:rgba(237,237,237,.48)">
+        <span>© 2026 Freight Load Solutions LLC. All rights reserved.</span>
+        <div style="display:flex;gap:22px">
+          <a href="#" style="transition:color .25s" style-hover="color:#F4F2F2">Privacy Policy</a>
+          <a href="#" style="transition:color .25s" style-hover="color:#F4F2F2">Terms &amp; Conditions</a>
+          <a href="#" style="transition:color .25s" style-hover="color:#F4F2F2">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  setRoot = (el) => { this.root = el; };
+
+  componentDidMount() {
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const d = parseFloat(el.getAttribute('data-reveal-delay') || '0');
+          el.style.transitionDelay = d + 'ms';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    this.io = io;
+    requestAnimationFrame(() => {
+      if (!this.root) return;
+      this.root.querySelectorAll('[data-reveal]').forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px)';
+        el.style.transition = 'opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1)';
+        io.observe(el);
+      });
+    });
+    this._restoreCtaVideo();
+  }
+
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+
+  pickCtaVideo = () => {
+    const inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = 'video/*';
+    inp.onchange = () => {
+      const f = inp.files && inp.files[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const data = reader.result;
+        this._mountCtaVideo(data);
+        try { localStorage.setItem('fls-about-cta-video', data); } catch (e) {}
+      };
+      reader.readAsDataURL(f);
+    };
+    inp.click();
+  };
+
+  ctaDragOver = (e) => { e.preventDefault(); };
+
+  ctaDrop = (e) => {
+    e.preventDefault();
+    const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!f || !f.type.startsWith('video/')) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const data = reader.result;
+      this._mountCtaVideo(data);
+      try { localStorage.setItem('fls-about-cta-video', data); } catch (e2) {}
+    };
+    reader.readAsDataURL(f);
+  };
+
+  _mountCtaVideo(src) {
+    const host = this.root && this.root.querySelector('#fls-cta-media');
+    if (!host) return;
+    let v = host.querySelector('video.fls-cta-video');
+    if (!v) {
+      v = document.createElement('video');
+      v.className = 'fls-cta-video';
+      v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0';
+      host.insertBefore(v, host.firstChild);
+    }
+    v.src = src;
+    const p = v.play && v.play(); if (p && p.catch) p.catch(() => {});
+  }
+
+  _restoreCtaVideo() {
+    let data = null;
+    try { data = localStorage.getItem('fls-about-cta-video'); } catch (e) {}
+    if (data) this._mountCtaVideo(data);
+  }
+
+  renderVals() {
+    return {
+      setRoot: this.setRoot,
+      pickCtaVideo: this.pickCtaVideo,
+      ctaDragOver: this.ctaDragOver,
+      ctaDrop: this.ctaDrop,
+
+      navLinks: [
+        { label: 'Home', href: 'Freight Load Solutions.dc.html' },
+        { label: 'Services', href: 'Services.dc.html' },
+        { label: 'About', href: 'About.dc.html' },
+        { label: 'Contact', href: 'Contact.dc.html' }
+      ],
+      chips: ['MC# 1596635', 'DOT# 4156576', 'Surety Bonded', 'Cargo Insured'],
+
+      heroChips: ['Est. 2021', 'Pittsburgh, PA', 'MC# 1596635', 'Licensed & Bonded'],
+      quickFacts: [
+        { label: 'Headquarters', value: 'Pittsburgh, Pennsylvania' },
+        { label: 'Founded', value: '2021' },
+        { label: 'Coverage', value: '48 States — Nationwide' },
+        { label: 'Authority', value: 'MC# 1596635 · DOT# 4156576' },
+        { label: 'Direct Line', value: '412-212-2243' }
+      ],
+      statNumbers: [
+        { num: '48', label: 'States covered nationwide' },
+        { num: '1,000+', label: 'Loads available every week' },
+        { num: '2hr', label: 'Response SLA, guaranteed' },
+        { num: '2021', label: 'Founded in Pittsburgh, PA' }
+      ],
+      timeline: [
+        { year: '2021 — Founded', title: 'FLS opens in Pittsburgh, PA', body: 'MC authority obtained. First shipper accounts onboarded. Three founders, one mission: accountability on every load.' },
+        { year: '2022 — Growth', title: 'Carrier network scales to 48 states', body: 'Nationwide dry van coverage established. First 100 shipper accounts onboarded. Carrier vetting process built from the ground up.' },
+        { year: '2023 — Expansion', title: 'Agent partnership program launches', body: 'Independent freight agents begin plugging into the FLS network. 1,000+ weekly loads milestone reached.' },
+        { year: '2024 & Beyond', title: 'Expanding capacity. Same team, same standard.', body: 'Growing lanes, growing the network — without growing the distance between us and the people we serve.' }
+      ],
+      principles: [
+        { title: 'We Answer the Phone', body: 'You will always reach a real person. Mon–Fri 8am–6pm ET — and available outside hours for urgent loads.' },
+        { title: 'Full Visibility, Always', body: 'Real-time tracking on every load. Proactive updates when something changes — not a call after the fact.' },
+        { title: 'One Contact Per Load', body: "One dedicated person owns your shipment from pickup to proof of delivery. Not a team inbox. A name." },
+        { title: 'Carriers We Actually Trust', body: "Every carrier is vetted, compliant, and monitored. We know who's driving your load — always." }
+      ],
+      team: [
+        { name: 'Giao Nguyen', title: 'Chief Executive Officer', bio: 'Leads company strategy and shipper relationships. Giao is your first call when something needs to get done — and she picks up.', linkedin: 'https://www.linkedin.com/in/giao-nguyen', slotId: 'fls-team-giao' },
+        { name: 'P.J. Khara', title: 'Chief Financial Officer', bio: 'Keeps operations financially sound and fully compliant — so you never have to worry about who you\u2019re working with.', linkedin: 'https://www.linkedin.com/in/pj-khara', slotId: 'fls-team-pj' },
+        { name: 'Farhan Anis', title: 'Chief Operating Officer', bio: "Runs daily operations and carrier coordination. If your load is moving, Farhan is making sure it's moving right.", linkedin: 'https://www.linkedin.com/in/farhan-anis', slotId: 'fls-team-farhan' }
+      ],
+      regions: ['Northeast', 'Mid-Atlantic', 'Midwest', 'Southeast', 'Southwest', 'West Coast', '48 States Total'],
+      credentials: [
+        { label: 'MC Authority', value: 'MC# 1596635 — Active broker authority' },
+        { label: 'DOT Number', value: 'DOT# 4156576 — Registered with FMCSA' },
+        { label: 'Surety Bond', value: 'BMC-84 bonded — $75,000 freight broker bond' },
+        { label: 'Cargo Insurance', value: 'Fully insured — Cargo & liability covered' }
+      ],
+      footServices: [
+        { label: 'Full Truckload', href: 'Services.dc.html#dry-van' },
+        { label: 'LTL', href: 'Services.dc.html#partial-ltl' },
+        { label: 'Expedited', href: 'Services.dc.html#expedited' },
+        { label: 'Intermodal', href: 'Freight Load Solutions.dc.html#services' },
+        { label: 'Agent Services', href: 'Services.dc.html#agent-services' }
+      ],
+      footCompany: [
+        { label: 'About Us', href: 'About.dc.html' },
+        { label: 'Why FLS', href: 'Freight Load Solutions.dc.html#carriers' },
+        { label: 'Careers', href: '#' },
+        { label: 'Blog', href: 'Freight Load Solutions.dc.html#updates' },
+        { label: 'Contact', href: 'Contact.dc.html' },
+        { label: 'Consult With Us', href: 'Consult.dc.html' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

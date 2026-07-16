@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  @font-face{font-family:'Overused Grotesk';src:url('https://cdn.jsdelivr.net/gh/RandomMaerks/Overused-Grotesk/fonts/variable/OverusedGrotesk-VF.ttf') format('truetype-variations');font-weight:300 900;font-display:swap}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#F4F2F2;color:#1D2128;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  a:hover{color:inherit}
+  img{display:block;max-width:100%}
+  ::selection{background:#FF9E20;color:#1D2128}
+  ::-webkit-scrollbar{height:0;width:0}
+  @keyframes fls-pan{0%{transform:scale(1.06)}100%{transform:scale(1.16) translate(-1.5%,-1%)}}
+</style>
+</helmet>
+
+<div ref="{{ setRoot }}" style="overflow-x:hidden;background:#F4F2F2">
+
+  <!-- ===================== NAV ===================== -->
+  <nav data-screen-label="Nav" style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;justify-content:space-between;gap:20px;padding:14px clamp(16px,2.2vw,34px);background:rgba(29,33,40,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(237,237,237,.09)">
+    <a href="Freight Load Solutions.dc.html" style="display:flex;align-items:center;gap:10px;flex-shrink:0;white-space:nowrap">
+      <img src="./fls-logo.png" alt="FLS" style="height:26px;width:auto;display:block;flex-shrink:0">
+      <span style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,237,237,.5);border-left:1px solid rgba(237,237,237,.2);padding-left:10px">Freight&nbsp;Load&nbsp;Solutions</span>
+    </a>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2px">
+      <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="4">
+        <a href="{{ n.href }}" style="font-family: Inter; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 9px 14px; border-radius: 8px; color: rgba(237,237,237,.78); transition: background .25s,color .25s" style-hover="background:rgba(237,237,237,.08);color:#F4F2F2">{{ n.label }}</a>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="Contact.dc.html" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: rgba(237,237,237,.08); backdrop-filter: blur(4px); transition: background .25s,transform .25s" style-hover="background:rgba(237,237,237,.16);transform:translateY(-1px)">Talk to Our Team</a>
+      <a href="#book" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: #FF9E20; color: #1D2128; transition: transform .25s,box-shadow .25s" style-hover="transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.5)">Consult With Us</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header data-screen-label="Consult Hero" style="position:relative;padding:clamp(140px,16vw,196px) clamp(16px,2.2vw,34px) clamp(56px,7vw,88px)">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="display:inline-flex;align-items:center;gap:9px;font-family:Inter;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(21,21,21,.55);margin-bottom:20px"><span style="width:6px;height:6px;border-radius:50%;background:#FF9E20"></span>Consult With Us</div>
+      <h1 data-reveal="" data-reveal-delay="60" style="margin:0;max-width:16ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,5.4vw,74px);line-height:1.02;letter-spacing:-.03em;color:#1D2128">Expert Freight Guidance. On Your Schedule.</h1>
+      <p data-reveal="" data-reveal-delay="120" style="margin:22px 0 0;max-width:56ch;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:rgba(21,21,21,.66)">Book a session with our Pittsburgh team. Real answers, no sales pitch, no runaround.</p>
+      <div data-reveal="" data-reveal-delay="180" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px">
+        <sc-for list="{{ heroFeatures }}" as="f" hint-placeholder-count="5">
+          <span style="display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:13px;color:rgba(21,21,21,.68)"><span style="color:#FF9E20">✓</span>{{ f }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== PRICING CARDS ===================== -->
+  <section id="book" data-screen-label="Consultations" style="background:#FFFFFF;padding:0 clamp(16px,2.2vw,34px) clamp(64px,9vw,120px)">
+    <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(24px,3vw,40px)">
+      <sc-for list="{{ consultations }}" as="p" hint-placeholder-count="2">
+        <div data-reveal="" data-card="" style="position:relative;background:#F4F2F2;border-radius:14px;padding:clamp(30px,3vw,44px);display:flex;flex-direction:column;gap:16px;border:1px solid rgba(21,21,21,.08);transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 26px 56px rgba(21,21,21,.14)">
+          <sc-if value="{{ p.popular }}" hint-placeholder-val="{{ false }}">
+            <span style="position:absolute;top:24px;right:24px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:#1D2128;color:#F4F2F2;padding:6px 12px;border-radius:100px">Most Popular</span>
+          </sc-if>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#DA6018">{{ p.kicker }}</div>
+          <h3 style="margin:0;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.02em">{{ p.title }}</h3>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:rgba(21,21,21,.64)">{{ p.desc }}</p>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:6px">
+            <sc-for list="{{ p.features }}" as="feat" hint-placeholder-count="4">
+              <div style="display:flex;gap:9px;font-size:14px;line-height:1.5;color:rgba(21,21,21,.7)"><span style="color:#215E61">✓</span>{{ feat }}</div>
+            </sc-for>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:20px;border-top:1px solid rgba(21,21,21,.1)">
+            <div>
+              <div style="font-family:'Inter',sans-serif;font-size:12px;color:rgba(21,21,21,.5)">{{ p.duration }} · Video or phone</div>
+              <div style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:26px;letter-spacing:-.015em;margin-top:4px">{{ p.price }}</div>
+            </div>
+            <a href="tel:4122122243" style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:14px 22px;border-radius:8px;background:#1D2128;color:#F4F2F2;white-space:nowrap;transition:transform .25s" style-hover="transform:translateY(-2px)">Call to Book</a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ===================== SCHEDULING ===================== -->
+  <section data-screen-label="Schedule" style="background:#F4F2F2;padding:clamp(64px,9vw,110px) clamp(16px,2.2vw,34px)">
+    <div data-reveal="" style="max-width:900px;margin:0 auto;text-align:center;background:#FFFFFF;border:1px solid rgba(21,21,21,.08);border-radius:14px;padding:clamp(40px,5vw,64px)">
+      <div style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#215E61;margin-bottom:16px">Schedule Your Session</div>
+      <h2 style="margin:0;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(24px,2.8vw,36px);letter-spacing:-.02em">Booking Calendar Coming Soon</h2>
+      <p style="margin:16px 0 0;max-width:48ch;margin-left:auto;margin-right:auto;font-size:15px;line-height:1.6;color:rgba(21,21,21,.6)">We're setting up online scheduling. In the meantime, call or email us directly to book your consultation — Packaging Solutions ($100) or Logistics Consulting ($200).</p>
+      <a href="tel:4122122243" style="display:inline-block;margin-top:28px;font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:15px 26px;border-radius:8px;background:#FF9E20;color:#1D2128;transition:transform .25s" style-hover="transform:translateY(-2px)">Call 412-212-2243 to Book Now</a>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section data-screen-label="Process" style="background:#FFFFFF;padding:clamp(64px,9vw,120px) clamp(16px,2.2vw,34px)">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#DA6018;margin-bottom:16px">The Process</div>
+      <h2 data-reveal="" data-reveal-delay="60" style="margin:0 0 40px;max-width:22ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(28px,3.6vw,46px);line-height:1.06;letter-spacing:-.025em">What Happens After You Book.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(21,21,21,.1);border:1px solid rgba(21,21,21,.1);border-radius:14px;overflow:hidden">
+        <sc-for list="{{ process }}" as="s" hint-placeholder-count="4">
+          <div style="background:#F4F2F2;padding:28px 26px">
+            <div style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:15px;color:rgba(21,21,21,.4)">{{ s.n }}</div>
+            <div style="margin-top:14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:19px;letter-spacing:-.015em">{{ s.title }}</div>
+            <div style="margin-top:8px;font-size:14px;color:rgba(21,21,21,.56)">{{ s.sub }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section data-screen-label="FAQ" style="background:#F4F2F2;padding:clamp(64px,9vw,110px) clamp(16px,2.2vw,34px)">
+    <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:minmax(200px,0.7fr) minmax(320px,1.6fr);gap:clamp(32px,5vw,80px);align-items:start">
+      <div data-reveal="">
+        <h2 style="margin:0;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(40px,5.4vw,80px);line-height:.92;letter-spacing:-.035em">FAQ</h2>
+        <div style="margin-top:18px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(21,21,21,.5);max-width:22ch">Everything about booking a session</div>
+      </div>
+      <div data-reveal="" data-reveal-delay="80">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+          <div data-faq="" data-open="0" style="border-top:1px solid rgba(21,21,21,.16)">
+            <button onClick="{{ toggleFaq }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 0;border:none;cursor:pointer;text-align:left;color:#1D2128;background:transparent">
+              <span style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(18px,1.8vw,24px);letter-spacing:-.01em">{{ f.q }}</span>
+              <span data-icon="" style="flex:none;font-family:'Inter',sans-serif;font-size:20px;transition:transform .3s;color:#FF9E20">+</span>
+            </button>
+            <div data-answer="" style="max-height:0;overflow:hidden;transition:max-height .4s ease">
+              <p style="margin:0 0 24px;max-width:60ch;font-size:16px;line-height:1.6;color:rgba(21,21,21,.6)">{{ f.a }}</p>
+            </div>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid rgba(21,21,21,.16)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section data-screen-label="CTA" style="position:relative;min-height:clamp(340px,40vw,500px);display:flex;align-items:center;overflow:hidden;background:#171b22">
+    <div id="fls-cta-media" style="position:absolute;inset:0;overflow:hidden" onClick="{{ pickCtaVideo }}" onDragOver="{{ ctaDragOver }}" onDrop="{{ ctaDrop }}">
+      <div style="position:absolute;inset:-6%;animation:fls-pan 24s ease-in-out infinite alternate;background:repeating-linear-gradient(0deg,rgba(0,0,0,.32) 0 1px,transparent 1px 34px),repeating-linear-gradient(90deg,rgba(0,0,0,.32) 0 1px,transparent 1px 60px),linear-gradient(160deg,#242017,#1a1c20 55%,#171b22)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.85),rgba(8,9,11,.35) 60%,rgba(8,9,11,.6))"></div>
+    </div>
+    <div style="position:relative;max-width:1600px;margin:0 auto;padding:0 clamp(16px,2.2vw,34px);text-align:center;width:100%;pointer-events:none">
+      <div data-reveal="" style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,237,237,.6);margin-bottom:20px">Prefer Not to Book Online?</div>
+      <h2 data-reveal="" data-reveal-delay="60" style="margin:0 auto;max-width:16ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(30px,4.2vw,56px);line-height:1.04;letter-spacing:-.03em">Just call us. We pick up.</h2>
+      <p data-reveal="" data-reveal-delay="120" style="margin:18px 0 0;font-size:15px;color:rgba(237,237,237,.62)">412-212-2243 · Mon–Fri 8am–6pm ET · No booking required</p>
+      <div data-reveal="" data-reveal-delay="180" style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;align-items:center;margin-top:30px;pointer-events:auto">
+        <a href="tel:4122122243" style="font-family:'Inter',sans-serif;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:15px 26px;border-radius:8px;background:#FF9E20;color:#1D2128;transition:transform .25s" style-hover="transform:translateY(-2px)">Call 412-212-2243</a>
+        <a href="Contact.dc.html" style="font-size:15px;color:rgba(237,237,237,.7);border-bottom:1px solid rgba(237,237,237,.4)">Send a Message</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer data-screen-label="Footer" style="background:#14171d;color:#F4F2F2;padding:clamp(56px,8vw,96px) clamp(16px,2.2vw,34px) 36px">
+    <div style="max-width:1600px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(24px,4vw,52px);padding-bottom:clamp(40px,6vw,72px)">
+        <div style="min-width:220px">
+          <img src="./fls-logo.png" alt="FLS" style="height:28px;width:auto;display:block;margin-bottom:16px">
+          <p style="margin:0;max-width:34ch;font-size:15px;line-height:1.6;color:rgba(237,237,237,.56)">A licensed freight brokerage dedicated to dry van freight for the packaging and manufacturing industry.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="4">
+              <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(237,237,237,.48);border:1px solid rgba(237,237,237,.12);border-radius:6px;padding:6px 10px">{{ c }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Services</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ footServices }}" as="f" hint-placeholder-count="5">
+              <a href="{{ f.href }}" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Company</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ footCompany }}" as="f" hint-placeholder-count="6">
+              <a href="{{ f.href }}" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;color:rgba(237,237,237,.72)">
+            <a href="tel:4122122243" style="transition:color .25s" style-hover="color:#F4F2F2">(412) 212-2243</a>
+            <a href="mailto:info@freightloadsolutions.com" style="transition:color .25s" style-hover="color:#F4F2F2">info@freightloadsolutions.com</a>
+            <div style="line-height:1.5">3707 Forbes Ave<br>Pittsburgh, PA 15213</div>
+            <div style="color:rgba(237,237,237,.46)">Mon–Fri 8AM–6PM EST</div>
+            <div style="color:rgba(237,237,237,.46)">After Hours: 24/7 Available</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:26px;border-top:1px solid rgba(237,237,237,.12);font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;color:rgba(237,237,237,.48)">
+        <span>© 2026 Freight Load Solutions LLC. All rights reserved.</span>
+        <div style="display:flex;gap:22px">
+          <a href="#" style="transition:color .25s" style-hover="color:#F4F2F2">Privacy Policy</a>
+          <a href="#" style="transition:color .25s" style-hover="color:#F4F2F2">Terms &amp; Conditions</a>
+          <a href="#" style="transition:color .25s" style-hover="color:#F4F2F2">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  setRoot = (el) => { this.root = el; };
+
+  componentDidMount() {
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const d = parseFloat(el.getAttribute('data-reveal-delay') || '0');
+          el.style.transitionDelay = d + 'ms';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    this.io = io;
+    requestAnimationFrame(() => {
+      if (!this.root) return;
+      this.root.querySelectorAll('[data-reveal]').forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px)';
+        el.style.transition = 'opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1)';
+        io.observe(el);
+      });
+    });
+    this._restoreCtaVideo();
+  }
+
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+
+  toggleFaq = (e) => {
+    const row = e.currentTarget.closest('[data-faq]');
+    if (!row) return;
+    const answer = row.querySelector('[data-answer]');
+    const icon = row.querySelector('[data-icon]');
+    const isOpen = row.getAttribute('data-open') === '1';
+    if (isOpen) {
+      row.setAttribute('data-open', '0');
+      if (answer) answer.style.maxHeight = '0px';
+      if (icon) icon.style.transform = 'rotate(0deg)';
+    } else {
+      row.setAttribute('data-open', '1');
+      if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+      if (icon) icon.style.transform = 'rotate(45deg)';
+    }
+  };
+
+  pickCtaVideo = () => {
+    const inp = document.createElement('input');
+    inp.type = 'file'; inp.accept = 'video/*';
+    inp.onchange = () => {
+      const f = inp.files && inp.files[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const data = reader.result;
+        this._mountCtaVideo(data);
+        try { localStorage.setItem('fls-consult-cta-video', data); } catch (e) {}
+      };
+      reader.readAsDataURL(f);
+    };
+    inp.click();
+  };
+
+  ctaDragOver = (e) => { e.preventDefault(); };
+
+  ctaDrop = (e) => {
+    e.preventDefault();
+    const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!f || !f.type.startsWith('video/')) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const data = reader.result;
+      this._mountCtaVideo(data);
+      try { localStorage.setItem('fls-consult-cta-video', data); } catch (e2) {}
+    };
+    reader.readAsDataURL(f);
+  };
+
+  _mountCtaVideo(src) {
+    const host = this.root && this.root.querySelector('#fls-cta-media');
+    if (!host) return;
+    let v = host.querySelector('video.fls-cta-video');
+    if (!v) {
+      v = document.createElement('video');
+      v.className = 'fls-cta-video';
+      v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0';
+      host.insertBefore(v, host.firstChild);
+    }
+    v.src = src;
+    const p = v.play && v.play(); if (p && p.catch) p.catch(() => {});
+  }
+
+  _restoreCtaVideo() {
+    let data = null;
+    try { data = localStorage.getItem('fls-consult-cta-video'); } catch (e) {}
+    if (data) this._mountCtaVideo(data);
+  }
+
+  renderVals() {
+    return {
+      setRoot: this.setRoot,
+      toggleFaq: this.toggleFaq,
+      pickCtaVideo: this.pickCtaVideo,
+      ctaDragOver: this.ctaDragOver,
+      ctaDrop: this.ctaDrop,
+
+      navLinks: [
+        { label: 'Home', href: 'Freight Load Solutions.dc.html' },
+        { label: 'Services', href: 'Services.dc.html' },
+        { label: 'About', href: 'About.dc.html' },
+        { label: 'Contact', href: 'Contact.dc.html' }
+      ],
+      chips: ['MC# 1596635', 'DOT# 4156576', 'Surety Bonded', 'Cargo Insured'],
+
+      heroFeatures: ['Video or phone call', 'Pick your own time slot', 'Real FLS team member', 'No obligation', 'Money back if not satisfied'],
+
+      consultations: [
+        {
+          kicker: 'Consultation', title: 'Packaging Solutions',
+          desc: 'Tailored freight strategy for packaging manufacturers. We review your lanes, carriers, and costs — then show you exactly what\u2019s possible.',
+          features: ['Lane-by-lane freight cost review', 'Carrier fit analysis for your product type', 'Packaging-specific compliance guidance', 'Written summary of recommendations'],
+          duration: '1 hour', price: '$100 / session', popular: false
+        },
+        {
+          kicker: 'Deep Dive', title: 'Logistics Consulting',
+          desc: 'A comprehensive freight audit — carrier network, rate benchmarking, lane optimization, and a custom action plan you can implement immediately.',
+          features: ['Full carrier network audit & benchmarking', 'Rate comparison against current market', 'Lane optimization recommendations', 'Carrier compliance & risk assessment', 'Custom action plan sent within 24 hours'],
+          duration: '1 hr 30 min', price: '$200 / session', popular: true
+        }
+      ],
+
+      process: [
+        { n: '01', title: 'Pick your time', sub: 'Choose any open slot from the calendar above' },
+        { n: '02', title: 'Confirmation sent', sub: 'Email with call link and prep notes arrives instantly' },
+        { n: '03', title: 'We prepare', sub: 'Team reviews your lanes and freight profile before the call' },
+        { n: '04', title: 'Your session', sub: 'Real answers, no scripts — freight expertise you can act on' }
+      ],
+
+      faqs: [
+        { q: 'Can I cancel or reschedule?', a: 'Yes — up to 24 hours before your session at no charge.' },
+        { q: 'Is this a sales call?', a: "No. It's a working session. We give real advice whether you work with FLS or not." },
+        { q: 'Who will I speak with?', a: 'A member of our core Pittsburgh leadership team — not an outsourced rep.' },
+        { q: 'What should I prepare?', a: 'Your current lanes, weekly volume, and main pain points. More context = more value.' },
+        { q: "What's the difference between the two sessions?", a: 'Packaging focuses on manufacturers. Logistics Consulting is a full freight audit for any shipper type.' },
+        { q: 'Do I get anything in writing?', a: 'Yes — Logistics Consulting includes a written action plan sent within 24 hours of your call.' }
+      ],
+
+      footServices: [
+        { label: 'Full Truckload', href: 'Services.dc.html#dry-van' },
+        { label: 'LTL', href: 'Services.dc.html#partial-ltl' },
+        { label: 'Expedited', href: 'Services.dc.html#expedited' },
+        { label: 'Intermodal', href: 'Freight Load Solutions.dc.html#services' },
+        { label: 'Agent Services', href: 'Services.dc.html#agent-services' }
+      ],
+      footCompany: [
+        { label: 'About Us', href: 'About.dc.html' },
+        { label: 'Why FLS', href: 'Freight Load Solutions.dc.html#carriers' },
+        { label: 'Careers', href: '#' },
+        { label: 'Blog', href: 'Freight Load Solutions.dc.html#updates' },
+        { label: 'Contact', href: 'Contact.dc.html' },
+        { label: 'Consult With Us', href: 'Consult.dc.html' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

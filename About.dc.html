@@ -24,6 +24,20 @@
   ::-webkit-scrollbar{height:0;width:0}
   @keyframes fls-marquee{to{transform:translateX(-50%)}}
   @keyframes fls-pan{0%{transform:scale(1.06)}100%{transform:scale(1.16) translate(-1.5%,-1%)}}
+  .fls-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:0;flex-shrink:0}
+  .fls-hamburger span{display:block;height:2px;width:100%;background:#F4F2F2;border-radius:2px;transition:transform .25s,opacity .25s}
+  nav[data-screen-label="Nav"].is-open .fls-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  nav[data-screen-label="Nav"].is-open .fls-hamburger span:nth-child(2){opacity:0}
+  nav[data-screen-label="Nav"].is-open .fls-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  @media (max-width:900px){
+    .fls-hamburger{display:flex}
+    .fls-nav-links{display:none!important;flex-direction:column;align-items:stretch;width:100%;gap:2px;order:3}
+    .fls-nav-cta{display:none!important;flex-direction:column;align-items:stretch;width:100%;gap:8px;order:4;margin-top:8px}
+    nav[data-screen-label="Nav"]{flex-wrap:wrap}
+    nav[data-screen-label="Nav"].is-open .fls-nav-links,
+    nav[data-screen-label="Nav"].is-open .fls-nav-cta{display:flex!important}
+    .fls-nav-links a{padding:13px 10px!important}
+  }
 </style>
 </helmet>
 
@@ -35,12 +49,13 @@
       <img src="./fls-logo.png" alt="FLS" style="height:26px;width:auto;display:block;flex-shrink:0">
       <span style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,237,237,.5);border-left:1px solid rgba(237,237,237,.2);padding-left:10px">Freight&nbsp;Load&nbsp;Solutions</span>
     </a>
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2px">
+    <button class="fls-hamburger" aria-label="Menu" onClick="{{ toggleNav }}"><span></span><span></span><span></span></button>
+    <div class="fls-nav-links" style="display:flex;flex-wrap:wrap;align-items:center;gap:2px">
       <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="4">
         <a href="{{ n.href }}" style="font-family: Inter; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 9px 14px; border-radius: 8px; color: rgba(237,237,237,.78); transition: background .25s,color .25s" style-hover="background:rgba(237,237,237,.08);color:#F4F2F2">{{ n.label }}</a>
       </sc-for>
     </div>
-    <div style="display:flex;align-items:center;gap:8px">
+    <div class="fls-nav-cta" style="display:flex;align-items:center;gap:8px">
       <a href="index.html#contact" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: rgba(237,237,237,.08); backdrop-filter: blur(4px); transition: background .25s,transform .25s" style-hover="background:rgba(237,237,237,.16);transform:translateY(-1px)">Talk to Our Team</a>
       <a href="Consult.dc.html" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: #FF9E20; color: #1D2128; transition: transform .25s,box-shadow .25s" style-hover="transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.5)">Consult With Us</a>
     </div>
@@ -286,6 +301,7 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   setRoot = (el) => { this.root = el; };
+  toggleNav = (e) => { e.currentTarget.closest('nav').classList.toggle('is-open'); };
 
   componentDidMount() {
     const io = new IntersectionObserver((ents) => {
@@ -385,6 +401,7 @@ class Component extends DCLogic {
   renderVals() {
     return {
       setRoot: this.setRoot,
+      toggleNav: this.toggleNav,
       pickCtaVideo: this.pickCtaVideo,
       ctaDragOver: this.ctaDragOver,
       ctaDrop: this.ctaDrop,

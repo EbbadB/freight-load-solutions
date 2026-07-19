@@ -88,7 +88,7 @@
   <section data-screen-label="Story" style="background:#FFFFFF;padding:clamp(64px,9vw,120px) clamp(16px,2.2vw,34px)">
     <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(32px,5vw,72px);align-items:center;margin-bottom:clamp(56px,7vw,90px)">
       <div data-reveal="" style="position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#e7e3e3">
-        <image-slot id="fls-about-story" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+        <image-slot id="fls-about-story" src="./about-story.jpg" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
       </div>
       <div data-reveal="" data-reveal-delay="80">
         <div style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#DA6018;margin-bottom:16px">Our Story</div>
@@ -150,13 +150,13 @@
     <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:clamp(32px,5vw,72px);align-items:center">
       <div data-reveal="" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
         <div style="position:relative;grid-row:1 / 3;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:#e7e3e3">
-          <image-slot id="fls-about-office" shape="rect" placeholder="Click or drop exterior photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+          <image-slot id="fls-about-office" src="./about-office-1.jpg" shape="rect" placeholder="Click or drop exterior photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
         </div>
         <div style="position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#e7e3e3">
-          <image-slot id="fls-about-office-2" shape="rect" placeholder="Click or drop interior photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+          <image-slot id="fls-about-office-2" src="./about-office-2.jpg" shape="rect" placeholder="Click or drop interior photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
         </div>
         <div style="position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#e7e3e3">
-          <image-slot id="fls-about-office-3" shape="rect" placeholder="Click or drop team-at-work photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+          <image-slot id="fls-about-office-3" src="./about-office-3.jpg" shape="rect" placeholder="Click or drop team-at-work photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
         </div>
       </div>
       <div data-reveal="" data-reveal-delay="80">
@@ -203,9 +203,11 @@
 
   <!-- ===================== FINAL CTA ===================== -->
   <section data-screen-label="CTA" style="position:relative;min-height:clamp(360px,42vw,540px);display:flex;align-items:center;overflow:hidden;background:#171b22">
-    <div id="fls-cta-media" style="position:absolute;inset:0;overflow:hidden" onClick="{{ pickCtaVideo }}" onDragOver="{{ ctaDragOver }}" onDrop="{{ ctaDrop }}">
-      <div style="position:absolute;inset:-6%;animation:fls-pan 24s ease-in-out infinite alternate;background:repeating-linear-gradient(0deg,rgba(0,0,0,.32) 0 1px,transparent 1px 34px),repeating-linear-gradient(90deg,rgba(0,0,0,.32) 0 1px,transparent 1px 60px),linear-gradient(160deg,#242017,#1a1c20 55%,#171b22)"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.85),rgba(8,9,11,.35) 60%,rgba(8,9,11,.6))"></div>
+    <div id="fls-cta-media" style="position:absolute;inset:0;overflow:hidden">
+      <video autoplay muted loop playsinline poster="./cta-video-poster.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <source src="./cta-video.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.85),rgba(8,9,11,.5) 60%,rgba(8,9,11,.7))"></div>
     </div>
     <div style="position:relative;max-width:1600px;margin:0 auto;padding:0 clamp(16px,2.2vw,34px);pointer-events:none">
       <div data-reveal="" style="font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,237,237,.6);margin-bottom:20px">Ready to Work With Us?</div>
@@ -309,6 +311,19 @@ class Component extends DCLogic {
       });
     });
     this._restoreCtaVideo();
+    this._playStaticVideo('#fls-cta-media > video');
+  }
+
+  _playStaticVideo(selector) {
+    const v = this.root && this.root.querySelector(selector);
+    if (!v) return;
+    v.muted = true;
+    v.loop = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    const tryPlay = () => { const p = v.play && v.play(); if (p && p.catch) p.catch(() => {}); };
+    if (v.readyState >= 3) tryPlay();
+    else v.addEventListener('canplay', tryPlay, { once: true });
   }
 
   componentWillUnmount() { if (this.io) this.io.disconnect(); }

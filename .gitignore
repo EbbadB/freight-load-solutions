@@ -4,3 +4,11 @@
 # compressed hero-video.mp4 instead.
 Final Website/Freight Load Solutions Redesign/site-export/*.mov
 Final Website/Freight Load Solutions Redesign/site-export/New video hero *.mp4
+Final Website/Freight Load Solutions Redesign/site-export/ready to move your first load.mp4
+
+# Raw/uncompressed source photos — never commit, use the compressed
+# svc-*.jpg versions instead.
+Final Website/Freight Load Solutions Redesign/site-export/Dry van.jpg
+Final Website/Freight Load Solutions Redesign/site-export/partial LTL.jpg
+Final Website/Freight Load Solutions Redesign/site-export/expedited freight.jpg
+Final Website/Freight Load Solutions Redesign/site-export/agent services.jpg

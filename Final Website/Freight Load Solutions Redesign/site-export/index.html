@@ -120,7 +120,7 @@
     <div data-track="svc" style="display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;align-items:stretch;scroll-snap-type:x mandatory;padding:0 max(clamp(16px,2.2vw,34px),calc((100vw - 1600px)/2 + clamp(16px,2.2vw,34px))) 6px">
       <sc-for list="{{ services }}" as="sv" hint-placeholder-count="4">
         <div data-card="" data-reveal="" style="flex: none; scroll-snap-align: start; width: min(430px,84vw); position: relative; height: 520px; border-radius: 13px; overflow: hidden; background: #1D2128; transition: transform .4s,box-shadow .4s; transform: translate(0px, 20px)" style-hover="transform:translateY(-6px);box-shadow:0 26px 60px rgba(21,21,21,.3)">
-          <image-slot id="{{ sv.slotId }}" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+          <image-slot id="{{ sv.slotId }}" src="{{ sv.img }}" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
           <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(21,21,21,.94) 0%,rgba(21,21,21,.45) 44%,rgba(21,21,21,0) 100%);pointer-events:none"></div>
           <div style="position:absolute;top:20px;left:20px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#F4F2F2;background:#215E61;padding:7px 12px;border-radius:100px;pointer-events:none">{{ sv.tag }}</div>
           <div style="position:absolute;left:0;right:0;bottom:0;padding:28px;color:#F4F2F2;pointer-events:none">
@@ -414,10 +414,11 @@
   <!-- ===================== FINAL FULL-BLEED CTA ===================== -->
   <section data-screen-label="CTA" style="position:relative;min-height:clamp(420px,50vw,640px);display:flex;align-items:center;overflow:hidden;background:#1D2128">
     <div id="fls-cta-media" style="position:absolute;inset:0;overflow:hidden">
-      <div style="position:absolute;inset:-6%;animation:fls-pan 24s ease-in-out infinite alternate;background:repeating-linear-gradient(0deg,rgba(0,0,0,.32) 0 1px,transparent 1px 34px),repeating-linear-gradient(90deg,rgba(0,0,0,.32) 0 1px,transparent 1px 60px),linear-gradient(160deg,#242017,#1a1c20 55%,#1D2128)"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.85),rgba(8,9,11,.35) 60%,rgba(8,9,11,.6))"></div>
+      <video autoplay muted loop playsinline poster="./cta-video-poster.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <source src="./cta-video.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,11,.85),rgba(8,9,11,.5) 60%,rgba(8,9,11,.7))"></div>
     </div>
-    <div id="fls-cta-video-badge" onClick="{{ pickCtaVideo }}" style="position:absolute;top:24px;right:clamp(16px,2.2vw,34px);z-index:2;display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,237,237,.7);background:rgba(0,0,0,.4);border:1px solid rgba(237,237,237,.2);border-radius:100px;padding:8px 13px;backdrop-filter:blur(4px);cursor:pointer;transition:border-color .25s,background .25s" style-hover="border-color:#FF9E20;background:rgba(0,0,0,.6)"><span style="color:#FF9E20;font-size:13px">＋</span>Add / replace video</div>
     <div data-reveal="" style="position: relative; max-width: 900px; width: 100%; height: auto; margin: 0 auto; padding: 0 clamp(16px,2.2vw,34px)">
       
       <h2 style="margin: 0; max-width: 16ch; font-family: 'Overused Grotesk',sans-serif; font-weight: 400; font-size: 50px; line-height: 1; letter-spacing: -.03em; transform: translate(-9px, -47px)">Ready to Move Your First Load?</h2><p style="margin: 22px 0 0; max-width: 44ch; font-size: clamp(16px,1.4vw,19px); line-height: 1.6; color: rgba(237,237,237,.7); transform: translate(-6px, -57px); width: 340px">Our team picks up the phone. Get a rate in under an hour.</p>
@@ -505,7 +506,7 @@
           <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Services</div>
           <div style="display:flex;flex-direction:column;gap:12px">
             <sc-for list="{{ footServices }}" as="f" hint-placeholder-count="5">
-              <a href="#services" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f }}</a>
+              <a href="{{ f.href }}" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f.label }}</a>
             </sc-for>
           </div>
         </div>
@@ -576,11 +577,12 @@ class Component extends DCLogic {
     this._initGlobe();
     this._restoreHeroVideo();
     this._restoreCtaVideo();
-    this._playStaticHeroVideo();
+    this._playStaticVideo('#fls-hero-media > video');
+    this._playStaticVideo('#fls-cta-media > video');
   }
 
-  _playStaticHeroVideo() {
-    const v = this.root && this.root.querySelector('#fls-hero-media > video');
+  _playStaticVideo(selector) {
+    const v = this.root && this.root.querySelector(selector);
     if (!v) return;
     v.muted = true;
     v.loop = true;
@@ -969,10 +971,10 @@ class Component extends DCLogic {
       chips: ['MC# 1596635', 'DOT# 4156576', 'Surety Bonded', 'Cargo Insured'],
 
       services: [
-        { tag: 'Core Service', title: 'Dry Van', body: 'Vetted carriers across 48 states. One dedicated contact per load, real-time tracking, no surprises.', href: 'Services.dc.html#dry-van', slotId: 'svc-dry-van' },
-        { tag: 'Flexible', title: 'Partial / LTL', body: 'Pay only for the space you use. Same visibility and accountability as full truckload.', href: 'Services.dc.html#partial-ltl', slotId: 'svc-partial-ltl' },
-        { tag: 'Time-Critical', title: 'Expedited Freight', body: "Network activates in hours, not days. Team drivers available. We don't clock out when it matters.", href: 'Services.dc.html#expedited', slotId: 'svc-expedited' },
-        { tag: 'For Agents', title: 'Agent Services', body: 'Plug into our carrier network and back office. You build relationships — we handle the rest.', href: 'Services.dc.html#agent-services', slotId: 'svc-agent' }
+        { tag: 'Core Service', title: 'Dry Van', body: 'Vetted carriers across 48 states. One dedicated contact per load, real-time tracking, no surprises.', href: 'Services.dc.html#dry-van', slotId: 'svc-dry-van', img: 'svc-dry-van.jpg' },
+        { tag: 'Flexible', title: 'Partial / LTL', body: 'Pay only for the space you use. Same visibility and accountability as full truckload.', href: 'Services.dc.html#partial-ltl', slotId: 'svc-partial-ltl', img: 'svc-partial-ltl.jpg' },
+        { tag: 'Time-Critical', title: 'Expedited Freight', body: "Network activates in hours, not days. Team drivers available. We don't clock out when it matters.", href: 'Services.dc.html#expedited', slotId: 'svc-expedited', img: 'svc-expedited.jpg' },
+        { tag: 'For Agents', title: 'Agent Services', body: 'Plug into our carrier network and back office. You build relationships — we handle the rest.', href: 'Services.dc.html#agent-services', slotId: 'svc-agent', img: 'svc-agent.jpg' }
       ],
 
       logos: ['Packaging Manufacturers', 'Corrugated Box Producers', 'Paper Mills', 'Industrial Shippers', 'Dry Van Carriers', 'Food & Beverage Companies', 'Consumer Goods Distributors', 'Manufacturing Plants', 'Warehouse Operators', 'Freight Agents'],
@@ -1016,7 +1018,13 @@ class Component extends DCLogic {
 
       promises: ['Response in 2 hours', 'Real person calls you', 'No bots or automation', 'Pittsburgh-based team'],
 
-      footServices: ['Full Truckload', 'LTL', 'Expedited', 'Intermodal', 'Agent Services'],
+      footServices: [
+        { label: 'Full Truckload', href: 'Services.dc.html#dry-van' },
+        { label: 'LTL', href: 'Services.dc.html#partial-ltl' },
+        { label: 'Expedited', href: 'Services.dc.html#expedited' },
+        { label: 'Intermodal', href: 'Services.dc.html#dry-van' },
+        { label: 'Agent Services', href: 'Services.dc.html#agent-services' }
+      ],
       footCompany: [
         { label: 'About Us', href: 'About.dc.html' },
         { label: 'Why FLS', href: '#carriers' },

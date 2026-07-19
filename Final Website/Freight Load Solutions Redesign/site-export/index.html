@@ -54,28 +54,30 @@
   </nav>
 
   <!-- ===================== HERO (video) ===================== -->
-  <header data-screen-label="Hero" style="position: relative; height: 100vh; min-height: 680px; display: flex; flex-direction: column; justify-content: flex-end; padding: 0; overflow: hidden; background: #1D2128">
-    <!-- video placeholder -->
-    <div id="fls-hero-media" onClick="{{ pickVideo }}" onDragOver="{{ heroDragOver }}" onDrop="{{ heroDrop }}" style="position:absolute;inset:0;overflow:hidden;cursor:pointer">
-      <div style="position: absolute; inset: -8%; animation: fls-pan 20s ease-in-out infinite alternate; background: url(&quot;./8dccfa93d82a1ea6ddd08b84c9c16ab9-mrlxati3-i9yk.jpg&quot;) center / cover no-repeat"></div>
+  <header data-screen-label="Hero" style="position: relative; height: 100vh; min-height: 680px; display: flex; flex-direction: column; justify-content: center; padding: 0; overflow: hidden; background: #1D2128">
+    <!-- video background -->
+    <div id="fls-hero-media" style="position:absolute;inset:0;overflow:hidden">
+      <video autoplay muted loop playsinline poster="./hero-video-poster.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <source src="./hero-video.mp4" type="video/mp4">
+      </video>
       <div style="position:absolute;top:0;bottom:0;left:0;width:34%;background:linear-gradient(90deg,rgba(255,255,255,.10),transparent);animation:fls-sweep 9s linear infinite;mix-blend-mode:overlay"></div>
-      <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 20%,transparent 40%,rgba(8,9,11,.7) 100%)"></div>
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,11,.55) 0%,rgba(8,9,11,0) 30%,rgba(8,9,11,.2) 60%,rgba(8,9,11,.9) 100%)"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(80% 70% at 15% 50%,rgba(8,9,11,.55) 0%,transparent 65%)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,11,.6) 0%,rgba(8,9,11,.4) 30%,rgba(8,9,11,.45) 60%,rgba(8,9,11,.9) 100%)"></div>
       <div style="position: absolute; inset: 0; opacity: .5; background-image: url('data:image/svg+xml;utf8,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22&gt;&lt;filter id=%22n%22&gt;&lt;feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%222%22/&gt;&lt;/filter&gt;&lt;rect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%220.5%22/&gt;&lt;/svg&gt;'); mix-blend-mode: overlay; left: 36px; top: -9px"></div>
     </div>
     <!-- hero content -->
     <div style="position: relative; width: 100%; max-width: 1600px; margin: 0 auto; padding: 0 clamp(16px,2.2vw,34px) clamp(28px,3vw,44px); pointer-events: none">
-      <div data-reveal="" style="display: inline-flex; align-items: center; gap: 9px; font-family: Inter; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; color: rgba(237,237,237,.8); margin-bottom: 20px; transform: translate(55px, 0px)"><span style="width:6px;height:6px;border-radius:50%;background:#FF9E20;box-shadow:0 0 0 4px rgba(255,158,32,.2)"></span>Pittsburgh, PA · Est. 2021</div>
-      <h1 data-reveal="" data-reveal-delay="60" style="margin: 0; font-family: 'Overused Grotesk',sans-serif; font-weight: 400; font-size: clamp(42px,6.2vw,104px); line-height: .94; letter-spacing: -.035em; width: 600px; text-shadow: 0 4px 32px rgba(0,0,0,.4); transform: translate(52px, 0px)">When Your Freight Moves, Everything Moves.</h1><div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px;pointer-events:auto">
+      <div data-reveal="" style="display: inline-flex; align-items: center; gap: 9px; font-family: Inter; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; color: rgba(237,237,237,.8); margin-bottom: 20px"><span style="width:6px;height:6px;border-radius:50%;background:#FF9E20;box-shadow:0 0 0 4px rgba(255,158,32,.2)"></span>Pittsburgh, PA · Est. 2021</div>
+      <h1 data-reveal="" data-reveal-delay="60" style="margin: 0; font-family: 'Overused Grotesk',sans-serif; font-weight: 400; font-size: clamp(34px,5vw,84px); line-height: .96; letter-spacing: -.035em; width: 600px; text-shadow: 0 4px 32px rgba(0,0,0,.4)">When Your Freight Moves, Everything Moves.</h1><div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px;pointer-events:auto">
         <div style="flex:1 1 100%;min-width:0">
-          
+
           <div data-reveal="" data-reveal-delay="160" style="display:flex;flex-wrap:wrap;gap:14px;margin-top:32px">
-            <a href="#contact" style="font-family: 'Inter',sans-serif; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; padding: 15px 24px; border-radius: 8px; background: #FF9E20; color: #1D2128; white-space: nowrap; transition: transform .25s,box-shadow .25s; transform: translate(55px, 0px)" style-hover="transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.55)">Start Moving Freight</a>
-            <a href="tel:4122122243" style="font-family: 'Inter',sans-serif; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; padding: 15px 24px; border-radius: 8px; background: rgba(237,237,237,.1); border: 1px solid rgba(237,237,237,.22); backdrop-filter: blur(6px); white-space: nowrap; transition: background .25s,transform .25s; transform: translate(67px, 0px)" style-hover="background:rgba(237,237,237,.2);transform:translateY(-2px)">Call 412-212-2243</a>
+            <a href="#contact" style="font-family: 'Inter',sans-serif; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; padding: 15px 24px; border-radius: 8px; background: #FF9E20; color: #1D2128; white-space: nowrap; transition: transform .25s,box-shadow .25s" style-hover="transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.55)">Start Moving Freight</a>
+            <a href="tel:4122122243" style="font-family: 'Inter',sans-serif; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; padding: 15px 24px; border-radius: 8px; background: rgba(237,237,237,.1); border: 1px solid rgba(237,237,237,.22); backdrop-filter: blur(6px); white-space: nowrap; transition: background .25s,transform .25s" style-hover="background:rgba(237,237,237,.2);transform:translateY(-2px)">Call 412-212-2243</a>
           </div>
         </div>
         <!-- info card -->
-<div data-reveal="" data-reveal-delay="240" style="width: min(280px,100%); margin-left: auto; border: 1px solid rgba(237,237,237,.16); border-radius: 11px; padding: 16px 18px; backdrop-filter: blur(10px); display: flex; flex-direction: column; gap: 10px; background: linear-gradient(180deg, #FFFFFF45, #28211a55); box-shadow: 0 20px 44px rgba(0,0,0,.35); transform: translate(-52px, -53px)">
+<div data-reveal="" data-reveal-delay="240" style="width: min(280px,100%); margin-left: auto; border: 1px solid rgba(237,237,237,.16); border-radius: 11px; padding: 16px 18px; backdrop-filter: blur(10px); display: flex; flex-direction: column; gap: 10px; background: linear-gradient(180deg, #FFFFFF45, #28211a55); box-shadow: 0 20px 44px rgba(0,0,0,.35)">
           <div style="display:flex;align-items:center;justify-content:space-between;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,237,237,.6)"><span>24/7 Dispatch</span><span style="width:6px;height:6px;border-radius:50%;background:#FF9E20;box-shadow:0 0 0 3px rgba(255,158,32,.22)"></span></div>
           <div style="font-family:'Overused Grotesk',sans-serif;font-size:14px;line-height:1.4;color:rgba(237,237,237,.86)">After Hours: Available 24/7 — (412) 212-2243</div>
           <div style="border-top: 1px solid rgba(237,237,237,.12); padding-top: 9px; font-family: 'Inter',sans-serif; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: #FFFFFF73">Licensed MC# 1596635 · Surety Bonded</div>

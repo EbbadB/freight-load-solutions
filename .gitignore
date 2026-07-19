@@ -1,1 +1,6 @@
 .claude/
+
+# Raw/uncompressed source video footage — never commit, use the
+# compressed hero-video.mp4 instead.
+Final Website/Freight Load Solutions Redesign/site-export/*.mov
+Final Website/Freight Load Solutions Redesign/site-export/New video hero *.mp4

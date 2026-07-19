@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'Overused Grotesk';src:url('https://cdn.jsdelivr.net/gh/RandomMaerks/Overused-Grotesk/fonts/variable/OverusedGrotesk-VF.ttf') format('truetype-variations');font-weight:300 900;font-display:swap}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#F4F2F2;color:#1D2128;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  a:hover{color:inherit}
+  img{display:block;max-width:100%}
+  ::selection{background:#FF9E20;color:#1D2128}
+  ::-webkit-scrollbar{height:0;width:0}
+  @keyframes fls-marquee{to{transform:translateX(-50%)}}
+</style>
+</helmet>
+
+<div ref="{{ setRoot }}" style="overflow-x:hidden;background:#F4F2F2">
+
+  <!-- ===================== NAV ===================== -->
+  <nav data-screen-label="Nav" style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;justify-content:space-between;gap:20px;padding:14px clamp(16px,2.2vw,34px);background:rgba(29,33,40,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(237,237,237,.09)">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px;flex-shrink:0;white-space:nowrap">
+      <img src="./fls-logo.png" alt="FLS" style="height:26px;width:auto;display:block;flex-shrink:0">
+      <span style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,237,237,.5);border-left:1px solid rgba(237,237,237,.2);padding-left:10px">Freight&nbsp;Load&nbsp;Solutions</span>
+    </a>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2px">
+      <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="4">
+        <a href="{{ n.href }}" style="font-family: Inter; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 9px 14px; border-radius: 8px; color: rgba(237,237,237,.78); transition: background .25s,color .25s" style-hover="background:rgba(237,237,237,.08);color:#F4F2F2">{{ n.label }}</a>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="index.html#contact" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: rgba(237,237,237,.08); backdrop-filter: blur(4px); transition: background .25s,transform .25s" style-hover="background:rgba(237,237,237,.16);transform:translateY(-1px)">Talk to Our Team</a>
+      <a href="Consult.dc.html" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: #FF9E20; color: #1D2128; transition: transform .25s,box-shadow .25s" style-hover="transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.5)">Consult With Us</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header data-screen-label="Blog Hero" style="position:relative;padding:clamp(140px,16vw,196px) clamp(16px,2.2vw,34px) clamp(56px,7vw,88px)">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="display:inline-flex;align-items:center;gap:9px;font-family:Inter;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(21,21,21,.55);margin-bottom:20px"><span style="width:6px;height:6px;border-radius:50%;background:#FF9E20"></span>Blog</div>
+      <h1 data-reveal="" data-reveal-delay="60" style="margin:0;max-width:18ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,5.4vw,74px);line-height:1.02;letter-spacing:-.03em;color:#1D2128">Updates That Move Freight Forward.</h1>
+      <p data-reveal="" data-reveal-delay="120" style="margin:22px 0 0;max-width:58ch;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:rgba(21,21,21,.66)">Straight talk on freight strategy, security, and market shifts — from the team that runs your dry van freight.</p>
+    </div>
+  </header>
+
+  <!-- ===================== ARTICLES ===================== -->
+  <section data-screen-label="Articles" style="background:#FFFFFF;padding:0 clamp(16px,2.2vw,34px) clamp(64px,9vw,110px)">
+    <div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(56px,8vw,96px)">
+
+      <article id="ai-in-freight-logistics-2026" data-reveal="" style="border-top:1px solid rgba(21,21,21,.12);padding-top:clamp(40px,6vw,64px)">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#FF9E20;margin-bottom:14px">AI &amp; Technology · Week 1</div>
+        <h2 style="margin:0 0 26px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-.025em">AI in Freight Logistics 2026: What Shippers Need to Know</h2>
+        <p style="font-size:17px;line-height:1.7;color:rgba(21,21,21,.72)">The freight market entered 2026 with tighter capacity, higher LTL rates, and a shipper base under pressure to do more with less. AI in freight logistics has stopped being a "nice-to-have" pilot project and started delivering measurable results — cutting empty miles, catching fraudulent bookings before they ship, and giving planners hours back in their week. Adoption is uneven, and the gap between the winners and everyone else is widening fast.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">Why 2026 Is the Inflection Year</h3>
+        <p style="font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">Three forces converged this year: capacity volatility as spot truckload rates crossed above contract rates for the first time since 2021; rising fraud losses, with reported cargo theft topping $131 million in Q1 2026 alone; and data maturity, as most mid-market shippers finally have clean-enough operational data for AI models to work on.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">Five Use Cases Delivering ROI Right Now</h3>
+        <ul style="margin:0;padding-left:20px;font-size:16px;line-height:1.75;color:rgba(21,21,21,.7)">
+          <li><strong>Dynamic route &amp; load optimization</strong> — hourly re-planning around weather, hours-of-service, and live traffic.</li>
+          <li><strong>Predictive ETA &amp; exception management</strong> — models score on-time probability continuously so teams manage the loads that need attention, not all of them.</li>
+          <li><strong>Automated carrier vetting</strong> — continuous monitoring of MC numbers, insurance, and safety scores flags spoofed carriers before tender.</li>
+          <li><strong>Rate intelligence &amp; contract benchmarking</strong> — live market comparisons replace annual RFP guesswork.</li>
+          <li><strong>Document &amp; invoice automation</strong> — extraction accuracy on freight documents is now consistently above 97%.</li>
+        </ul>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">What's Not Working Yet</h3>
+        <p style="font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">Fully autonomous procurement still creates service failures on complex freight, and generative AI handles tier-1 customer questions well but stumbles on claims and appointment changes. Keep a human in the loop on anything time-sensitive or high-value.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">The Bottom Line</h3>
+        <p style="font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">AI in freight logistics isn't about replacing dispatchers, planners, or drivers — it's about giving them a faster loop with better information and less noise. The shippers pulling ahead are treating AI as a discipline, not a demo.</p>
+        <a href="index.html#contact" style="display:inline-block;margin-top:20px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;border-radius:8px;background:#1D2128;color:#F4F2F2;transition:transform .25s" style-hover="transform:translateY(-2px)">Talk to a Solutions Consultant →</a>
+      </article>
+
+      <article id="cargo-theft-2026" data-reveal="" style="border-top:1px solid rgba(21,21,21,.12);padding-top:clamp(40px,6vw,64px)">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#FF9E20;margin-bottom:14px">Freight Security · Week 2</div>
+        <h2 style="margin:0 0 26px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-.025em">Cargo Theft in 2026: How Shippers Can Prevent Freight Fraud</h2>
+        <p style="font-size:17px;line-height:1.7;color:rgba(21,21,21,.72)">Cargo theft is no longer a smash-and-grab crime. Cargo theft prevention in 2026 means defending against organized rings that impersonate carriers, spoof MC numbers, and route stolen loads through legitimate-looking paperwork before anyone notices a truck went dark. Reported losses topped $131 million across the U.S. and Canada in Q1 2026 alone. Most of it is preventable — the shippers being hit hardest are the ones still relying on 2019-era carrier vetting.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">What Modern Freight Fraud Looks Like</h3>
+        <ul style="margin:0;padding-left:20px;font-size:16px;line-height:1.75;color:rgba(21,21,21,.7)">
+          <li><strong>Strategic (identity-based) theft</strong> — a shell brokerage or stolen carrier identity picks up a load cleanly and disappears.</li>
+          <li><strong>Double brokering</strong> — an unauthorized broker re-brokers your load without your knowledge, leaving zero contractual privity if something goes wrong.</li>
+          <li><strong>Fictitious pickups</strong> — someone with credentials that look right loads the freight before the real carrier ever arrives.</li>
+        </ul>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">Seven Prevention Steps Every Shipper Should Run</h3>
+        <ol style="margin:0;padding-left:20px;font-size:16px;line-height:1.75;color:rgba(21,21,21,.7)">
+          <li>Verify carrier identity at every booking, not just onboarding.</li>
+          <li>Call the carrier back on a number you look up independently — never the one from the load-board offer.</li>
+          <li>Use geofencing and live tracking on any load worth more than $25K.</li>
+          <li>Randomize pickup appointment windows for high-value freight.</li>
+          <li>Require photo ID plus callback verification before releasing any load.</li>
+          <li>Audit your broker partners' vetting workflow quarterly.</li>
+          <li>Insure to the value of the load, not the average.</li>
+        </ol>
+        <p style="margin-top:24px;font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">AI-driven fraud detection now flags suspicious booking patterns — a carrier bidding outside its normal lanes, a sudden dispatch-number change — before a load is even confirmed. Pair that with real-time visibility and you close most of the window fraudsters currently exploit.</p>
+        <a href="index.html#contact" style="display:inline-block;margin-top:20px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;border-radius:8px;background:#1D2128;color:#F4F2F2;transition:transform .25s" style-hover="transform:translateY(-2px)">Request a Freight Security Assessment →</a>
+      </article>
+
+      <article id="ltl-vs-truckload-2026" data-reveal="" style="border-top:1px solid rgba(21,21,21,.12);padding-top:clamp(40px,6vw,64px)">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#FF9E20;margin-bottom:14px">Freight Strategy · Week 3</div>
+        <h2 style="margin:0 0 26px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-.025em">LTL vs Truckload Shipping in 2026: Which Freight Mode Cuts Costs?</h2>
+        <p style="font-size:17px;line-height:1.7;color:rgba(21,21,21,.72)">The LTL vs truckload question used to be simple: under 12 pallets, ship LTL; above that, book a truckload. That rule of thumb no longer holds. LTL carriers are pushing through additional rate increases, truckload capacity is tightening for the first time in three years, and dedicated transportation is emerging as a third viable option. Making the wrong call now can cost you 15–25% on a shipment.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">When to Ship LTL</h3>
+        <p style="font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">LTL is still right for shipments between 1 and 12 pallets with reasonable density, when transit flexibility exists, and when delivery locations have standard receiving hours.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">When to Ship Truckload</h3>
+        <p style="font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">TL wins on 6+ pallets or 15,000+ lbs, time-sensitive freight, fragile or high-value cargo, and long-haul lanes over 500 miles where the LTL rate premium widens.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">When Dedicated Transportation Wins</h3>
+        <p style="font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">Consider dedicated when you ship the same lane five-plus days a week, need guaranteed capacity, or have appointment-driven receivers where a rotating carrier pool causes service failures.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">The FLS Decision Framework</h3>
+        <ol style="margin:0;padding-left:20px;font-size:16px;line-height:1.75;color:rgba(21,21,21,.7)">
+          <li>Weigh and measure accurately — wrong dimensions are the #1 source of re-rating charges.</li>
+          <li>Calculate density in pounds per cubic foot to know your real NMFC class.</li>
+          <li>Compare all-in cost across LTL, volume LTL, and partial TL on the same lane.</li>
+          <li>Layer in service risk — a failure can cost more than the rate delta.</li>
+          <li>Price any lane above 200 loads a year against a dedicated model.</li>
+        </ol>
+        <p style="margin-top:24px;font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">The old rule of thumb is broken in 2026. The shippers saving the most are running these numbers every quarter, not every RFP.</p>
+        <a href="index.html#contact" style="display:inline-block;margin-top:20px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;border-radius:8px;background:#1D2128;color:#F4F2F2;transition:transform .25s" style-hover="transform:translateY(-2px)">Book a Free Freight Review →</a>
+      </article>
+
+      <article id="nearshoring-tariffs-2026" data-reveal="" style="border-top:1px solid rgba(21,21,21,.12);padding-top:clamp(40px,6vw,64px)">
+        <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#FF9E20;margin-bottom:14px">Supply Chain Strategy · Week 4</div>
+        <h2 style="margin:0 0 26px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.1;letter-spacing:-.025em">Nearshoring &amp; Tariffs in 2026: A Shipper's Freight Strategy Guide</h2>
+        <p style="font-size:17px;line-height:1.7;color:rgba(21,21,21,.72)">Tariff instability has stopped being a policy concern and become an operational one. Nearshoring freight strategy is now a boardroom conversation — not because leaders love reshuffling supply chains, but because the cost of not moving has grown too big to ignore. Shippers who wait for stability are watching competitors lock in Mexico-based sourcing and cross-border capacity today.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">Why Nearshoring Accelerated</h3>
+        <p style="font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">Tariff volatility forces buyers to hedge, ocean freight economics remain unpredictable while cross-border trucking offers reliability, and a 3–5 day transit from Monterrey beats a 30-day ocean transit from Asia every time you need to react to a demand signal.</p>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">What Most Companies Underestimate</h3>
+        <ul style="margin:0;padding-left:20px;font-size:16px;line-height:1.75;color:rgba(21,21,21,.7)">
+          <li>Your lane mix shifts from East-West port drayage to North-South border lanes with different broker and carrier networks.</li>
+          <li>Cross-border complexity multiplies — a missed document can hold a trailer at the bridge for hours or days.</li>
+          <li>Cargo security becomes a bigger line item, since cross-border lanes carry some of the highest theft risk in North America.</li>
+          <li>Capacity assumptions break — Mexico's domestic trucking market runs on different economics entirely.</li>
+        </ul>
+        <h3 style="margin:30px 0 12px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:22px;letter-spacing:-.015em">A Four-Step Nearshoring Freight Playbook</h3>
+        <ol style="margin:0;padding-left:20px;font-size:16px;line-height:1.75;color:rgba(21,21,21,.7)">
+          <li>Model total landed cost, not just tariff cost.</li>
+          <li>Pilot one SKU line before scaling the whole catalog.</li>
+          <li>Build a bench of two to three vetted carriers per lane.</li>
+          <li>Layer in visibility from origin, not just border-north.</li>
+        </ol>
+        <p style="margin-top:24px;font-size:16px;line-height:1.7;color:rgba(21,21,21,.7)">Nearshoring is no longer a strategic option — it's a resilience requirement. The shippers pulling this off treat cross-border freight as its own discipline from day one.</p>
+        <a href="index.html#contact" style="display:inline-block;margin-top:20px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;border-radius:8px;background:#1D2128;color:#F4F2F2;transition:transform .25s" style-hover="transform:translateY(-2px)">Talk to Our Cross-Border Team →</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <section data-screen-label="Marquee" style="background:#FF9E20;color:#1D2128;padding:clamp(40px,6vw,72px) 0;overflow:hidden">
+    <div style="display:flex;width:max-content;animation:fls-marquee 30s linear infinite">
+      <span style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,7vw,110px);line-height:1;letter-spacing:-.04em;white-space:nowrap;padding-right:.4em">Building relationships one load at a time. —&nbsp;</span>
+      <span aria-hidden="true" style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,7vw,110px);line-height:1;letter-spacing:-.04em;white-space:nowrap;padding-right:.4em">Building relationships one load at a time. —&nbsp;</span>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer data-screen-label="Footer" style="background:#14171d;color:#F4F2F2;padding:clamp(56px,8vw,96px) clamp(16px,2.2vw,34px) 36px">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding-bottom:clamp(40px,6vw,72px);border-bottom:1px solid rgba(237,237,237,.12)">
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,237,237,.5);margin-bottom:14px">Stay in the loop</div>
+          <h2 style="margin:0;max-width:18ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(26px,3vw,42px);line-height:1.02;letter-spacing:-.03em">Don't let your freight sit. Call us now.</h2>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:rgba(237,237,237,.05);border:1px solid rgba(237,237,237,.16);border-radius:100px;padding:6px 6px 6px 20px;min-width:min(360px,100%)">
+          <input type="email" placeholder="Enter your email" style="flex:1;background:transparent;border:none;color:#F4F2F2;font-family:inherit;font-size:15px;padding:8px 0">
+          <button style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;border:none;border-radius:100px;background:#FF9E20;color:#1D2128;cursor:pointer;transition:transform .25s" style-hover="transform:translateX(2px)">Subscribe →</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(24px,4vw,52px);padding-bottom:clamp(40px,6vw,72px)">
+        <div style="min-width:220px">
+          <img src="./fls-logo.png" alt="FLS" style="height:28px;width:auto;display:block;margin-bottom:16px">
+          <p style="margin:0;max-width:34ch;font-size:15px;line-height:1.6;color:rgba(237,237,237,.56)">A licensed freight brokerage dedicated to dry van freight for the packaging and manufacturing industry.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="4">
+              <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(237,237,237,.48);border:1px solid rgba(237,237,237,.12);border-radius:6px;padding:6px 10px">{{ c }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Services</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ footServices }}" as="f" hint-placeholder-count="5">
+              <a href="{{ f.href }}" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Company</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ footCompany }}" as="f" hint-placeholder-count="6">
+              <a href="{{ f.href }}" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;color:rgba(237,237,237,.72)">
+            <a href="tel:4122122243" style="transition:color .25s" style-hover="color:#F4F2F2">(412) 212-2243</a>
+            <a href="mailto:info@freightloadsolutions.com" style="transition:color .25s" style-hover="color:#F4F2F2">info@freightloadsolutions.com</a>
+            <div style="line-height:1.5">3707 Forbes Ave<br>Pittsburgh, PA 15213</div>
+            <div style="color:rgba(237,237,237,.46)">Mon–Fri 8AM–6PM EST</div>
+            <div style="color:rgba(237,237,237,.46)">After Hours: 24/7 Available</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:26px;border-top:1px solid rgba(237,237,237,.12);font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;color:rgba(237,237,237,.48)">
+        <span>© 2026 Freight Load Solutions LLC. All rights reserved.</span>
+        <div style="display:flex;gap:22px">
+          <a href="Privacy.dc.html" style="transition:color .25s" style-hover="color:#F4F2F2">Privacy Policy</a>
+          <a href="Terms.dc.html" style="transition:color .25s" style-hover="color:#F4F2F2">Terms &amp; Conditions</a>
+          <a href="Cookies.dc.html" style="transition:color .25s" style-hover="color:#F4F2F2">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  setRoot = (el) => { this.root = el; };
+
+  componentDidMount() {
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const d = parseFloat(el.getAttribute('data-reveal-delay') || '0');
+          el.style.transitionDelay = d + 'ms';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    this.io = io;
+    requestAnimationFrame(() => {
+      if (!this.root) return;
+      this.root.querySelectorAll('[data-reveal]').forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px)';
+        el.style.transition = 'opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1)';
+        io.observe(el);
+      });
+    });
+  }
+
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+
+  renderVals() {
+    return {
+      setRoot: this.setRoot,
+      navLinks: [
+        { label: 'Home', href: 'index.html' },
+        { label: 'Services', href: 'Services.dc.html' },
+        { label: 'About', href: 'About.dc.html' },
+        { label: 'Contact', href: 'Contact.dc.html' }
+      ],
+      chips: ['MC# 1596635', 'DOT# 4156576', 'Surety Bonded', 'Cargo Insured'],
+      footServices: [
+        { label: 'Full Truckload', href: 'Services.dc.html#dry-van' },
+        { label: 'LTL', href: 'Services.dc.html#partial-ltl' },
+        { label: 'Expedited', href: 'Services.dc.html#expedited' },
+        { label: 'Intermodal', href: 'Services.dc.html#dry-van' },
+        { label: 'Agent Services', href: 'Services.dc.html#agent-services' }
+      ],
+      footCompany: [
+        { label: 'About Us', href: 'About.dc.html' },
+        { label: 'Why FLS', href: 'index.html#carriers' },
+        { label: 'Careers', href: 'Careers.dc.html' },
+        { label: 'Blog', href: 'Blog.dc.html' },
+        { label: 'Contact', href: 'Contact.dc.html' },
+        { label: 'Consult With Us', href: 'Consult.dc.html' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

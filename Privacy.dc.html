@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:'Overused Grotesk';src:url('https://cdn.jsdelivr.net/gh/RandomMaerks/Overused-Grotesk/fonts/variable/OverusedGrotesk-VF.ttf') format('truetype-variations');font-weight:300 900;font-display:swap}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:#F4F2F2;color:#1D2128;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  a:hover{color:inherit}
+  img{display:block;max-width:100%}
+  ::selection{background:#FF9E20;color:#1D2128}
+  ::-webkit-scrollbar{height:0;width:0}
+  @keyframes fls-marquee{to{transform:translateX(-50%)}}
+</style>
+</helmet>
+
+<div ref="{{ setRoot }}" style="overflow-x:hidden;background:#F4F2F2">
+
+  <!-- ===================== NAV ===================== -->
+  <nav data-screen-label="Nav" style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;justify-content:space-between;gap:20px;padding:14px clamp(16px,2.2vw,34px);background:rgba(29,33,40,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(237,237,237,.09)">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px;flex-shrink:0;white-space:nowrap">
+      <img src="./fls-logo.png" alt="FLS" style="height:26px;width:auto;display:block;flex-shrink:0">
+      <span style="font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,237,237,.5);border-left:1px solid rgba(237,237,237,.2);padding-left:10px">Freight&nbsp;Load&nbsp;Solutions</span>
+    </a>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2px">
+      <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="4">
+        <a href="{{ n.href }}" style="font-family: Inter; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 9px 14px; border-radius: 8px; color: rgba(237,237,237,.78); transition: background .25s,color .25s" style-hover="background:rgba(237,237,237,.08);color:#F4F2F2">{{ n.label }}</a>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="index.html#contact" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: rgba(237,237,237,.08); backdrop-filter: blur(4px); transition: background .25s,transform .25s" style-hover="background:rgba(237,237,237,.16);transform:translateY(-1px)">Talk to Our Team</a>
+      <a href="Consult.dc.html" style="font-family: Inter; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 10px 15px; border-radius: 8px; background: #FF9E20; color: #1D2128; transition: transform .25s,box-shadow .25s" style-hover="transform:translateY(-1px);box-shadow:0 10px 30px rgba(0,0,0,.5)">Consult With Us</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header data-screen-label="Privacy Hero" style="position:relative;padding:clamp(140px,16vw,196px) clamp(16px,2.2vw,34px) clamp(40px,5vw,60px)">
+    <div style="max-width:820px;margin:0 auto">
+      <div data-reveal="" style="display:inline-flex;align-items:center;gap:9px;font-family:Inter;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(21,21,21,.55);margin-bottom:20px"><span style="width:6px;height:6px;border-radius:50%;background:#FF9E20"></span>Legal</div>
+      <h1 data-reveal="" data-reveal-delay="60" style="margin:0;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(32px,4.6vw,58px);line-height:1.04;letter-spacing:-.03em;color:#1D2128">Privacy Policy</h1>
+      <p data-reveal="" data-reveal-delay="120" style="margin:16px 0 0;font-size:14px;color:rgba(21,21,21,.5)">Effective Date: January 1, 2026</p>
+    </div>
+  </header>
+
+  <!-- ===================== BODY ===================== -->
+  <section data-screen-label="Privacy Body" style="background:#FFFFFF;padding:0 clamp(16px,2.2vw,34px) clamp(64px,9vw,110px)">
+    <div data-reveal="" style="max-width:820px;margin:0 auto;font-size:16px;line-height:1.75;color:rgba(21,21,21,.72)">
+
+      <p>Freight Load Solutions LLC ("FLS," "we," "us," or "our") respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy explains what information we collect, how we use it, and the choices you have.</p>
+
+      <h2 style="margin:36px 0 14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#1D2128">1. Information We Collect</h2>
+      <p>We collect information you provide directly to us, including:</p>
+      <ul style="margin:12px 0;padding-left:20px">
+        <li>Contact details (name, company, email address, phone number) submitted through our contact forms, quote requests, or carrier onboarding forms.</li>
+        <li>Shipment and freight details you provide when requesting a rate or booking a load.</li>
+        <li>Carrier information, including MC/DOT numbers, insurance documentation, and operating authority, submitted for carrier vetting.</li>
+        <li>Communications you send us by phone, email, or web form.</li>
+      </ul>
+      <p>We also automatically collect limited technical information when you visit our website, such as browser type, device information, and pages visited, typically through cookies and similar technologies (see our <a href="Cookies.dc.html" style="color:#215E61;border-bottom:1px solid rgba(33,94,97,.4)">Cookie Policy</a>).</p>
+
+      <h2 style="margin:36px 0 14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#1D2128">2. How We Use Your Information</h2>
+      <p>We use the information we collect to:</p>
+      <ul style="margin:12px 0;padding-left:20px">
+        <li>Provide freight brokerage services, including quoting, booking, and tracking shipments.</li>
+        <li>Vet and onboard carriers and agents into our network.</li>
+        <li>Respond to inquiries and provide customer support.</li>
+        <li>Send service-related communications and, where you've opted in, marketing updates.</li>
+        <li>Comply with legal, regulatory, and safety obligations applicable to licensed freight brokers.</li>
+        <li>Improve our website and services.</li>
+      </ul>
+
+      <h2 style="margin:36px 0 14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#1D2128">3. How We Share Information</h2>
+      <p>We do not sell your personal information. We may share information with:</p>
+      <ul style="margin:12px 0;padding-left:20px">
+        <li>Carriers, shippers, and agents as necessary to coordinate and execute a shipment.</li>
+        <li>Service providers who support our operations (e.g., form and email delivery, hosting, payment processing), under obligations to protect your data.</li>
+        <li>Regulatory or governmental authorities where required by law, such as FMCSA reporting obligations.</li>
+        <li>A successor entity in the event of a merger, acquisition, or sale of assets.</li>
+      </ul>
+
+      <h2 style="margin:36px 0 14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#1D2128">4. Data Security</h2>
+      <p>We maintain reasonable administrative, technical, and physical safeguards designed to protect personal information against unauthorized access, loss, or misuse. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+
+      <h2 style="margin:36px 0 14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#1D2128">5. Data Retention</h2>
+      <p>We retain personal information for as long as necessary to provide our services, comply with legal and regulatory recordkeeping requirements (including FMCSA and DOT requirements applicable to freight brokers), and resolve disputes.</p>
+
+      <h2 style="margin:36px 0 14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#1D2128">6. Your Choices</h2>
+      <p>You may opt out of marketing emails at any time using the unsubscribe link included in those messages. You may also contact us directly to request access to, correction of, or deletion of your personal information, subject to our legal recordkeeping obligations.</p>
+
+      <h2 style="margin:36px 0 14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#1D2128">7. Children's Privacy</h2>
+      <p>Our website and services are intended for business use and are not directed to individuals under the age of 18. We do not knowingly collect personal information from children.</p>
+
+      <h2 style="margin:36px 0 14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#1D2128">8. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+
+      <h2 style="margin:36px 0 14px;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:24px;letter-spacing:-.015em;color:#1D2128">9. Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or how we handle your information, contact us at:</p>
+      <p style="margin-top:14px">Freight Load Solutions LLC<br>3707 Forbes Ave, Pittsburgh, PA 15213<br><a href="mailto:info@freightloadsolutions.com" style="color:#215E61;border-bottom:1px solid rgba(33,94,97,.4)">info@freightloadsolutions.com</a> · <a href="tel:4122122243" style="color:#215E61;border-bottom:1px solid rgba(33,94,97,.4)">412-212-2243</a></p>
+
+    </div>
+  </section>
+
+  <!-- ===================== MARQUEE ===================== -->
+  <section data-screen-label="Marquee" style="background:#FF9E20;color:#1D2128;padding:clamp(40px,6vw,72px) 0;overflow:hidden">
+    <div style="display:flex;width:max-content;animation:fls-marquee 30s linear infinite">
+      <span style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,7vw,110px);line-height:1;letter-spacing:-.04em;white-space:nowrap;padding-right:.4em">Building relationships one load at a time. —&nbsp;</span>
+      <span aria-hidden="true" style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,7vw,110px);line-height:1;letter-spacing:-.04em;white-space:nowrap;padding-right:.4em">Building relationships one load at a time. —&nbsp;</span>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer data-screen-label="Footer" style="background:#14171d;color:#F4F2F2;padding:clamp(56px,8vw,96px) clamp(16px,2.2vw,34px) 36px">
+    <div style="max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding-bottom:clamp(40px,6vw,72px);border-bottom:1px solid rgba(237,237,237,.12)">
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(237,237,237,.5);margin-bottom:14px">Stay in the loop</div>
+          <h2 style="margin:0;max-width:18ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(26px,3vw,42px);line-height:1.02;letter-spacing:-.03em">Don't let your freight sit. Call us now.</h2>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;background:rgba(237,237,237,.05);border:1px solid rgba(237,237,237,.16);border-radius:100px;padding:6px 6px 6px 20px;min-width:min(360px,100%)">
+          <input type="email" placeholder="Enter your email" style="flex:1;background:transparent;border:none;color:#F4F2F2;font-family:inherit;font-size:15px;padding:8px 0">
+          <button style="font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:12px 18px;border:none;border-radius:100px;background:#FF9E20;color:#1D2128;cursor:pointer;transition:transform .25s" style-hover="transform:translateX(2px)">Subscribe →</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(24px,4vw,52px);padding-bottom:clamp(40px,6vw,72px)">
+        <div style="min-width:220px">
+          <img src="./fls-logo.png" alt="FLS" style="height:28px;width:auto;display:block;margin-bottom:16px">
+          <p style="margin:0;max-width:34ch;font-size:15px;line-height:1.6;color:rgba(237,237,237,.56)">A licensed freight brokerage dedicated to dry van freight for the packaging and manufacturing industry.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:22px">
+            <sc-for list="{{ chips }}" as="c" hint-placeholder-count="4">
+              <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(237,237,237,.48);border:1px solid rgba(237,237,237,.12);border-radius:6px;padding:6px 10px">{{ c }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Services</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ footServices }}" as="f" hint-placeholder-count="5">
+              <a href="{{ f.href }}" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Company</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <sc-for list="{{ footCompany }}" as="f" hint-placeholder-count="6">
+              <a href="{{ f.href }}" style="font-size:15px;color:rgba(237,237,237,.72);width:fit-content;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:left bottom;background-size:0% 1px;transition:background-size .3s,color .25s" style-hover="color:#F4F2F2;background-size:100% 1px">{{ f.label }}</a>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(237,237,237,.46);margin-bottom:18px">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:15px;color:rgba(237,237,237,.72)">
+            <a href="tel:4122122243" style="transition:color .25s" style-hover="color:#F4F2F2">(412) 212-2243</a>
+            <a href="mailto:info@freightloadsolutions.com" style="transition:color .25s" style-hover="color:#F4F2F2">info@freightloadsolutions.com</a>
+            <div style="line-height:1.5">3707 Forbes Ave<br>Pittsburgh, PA 15213</div>
+            <div style="color:rgba(237,237,237,.46)">Mon–Fri 8AM–6PM EST</div>
+            <div style="color:rgba(237,237,237,.46)">After Hours: 24/7 Available</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:26px;border-top:1px solid rgba(237,237,237,.12);font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.04em;color:rgba(237,237,237,.48)">
+        <span>© 2026 Freight Load Solutions LLC. All rights reserved.</span>
+        <div style="display:flex;gap:22px">
+          <a href="Privacy.dc.html" style="transition:color .25s" style-hover="color:#F4F2F2">Privacy Policy</a>
+          <a href="Terms.dc.html" style="transition:color .25s" style-hover="color:#F4F2F2">Terms &amp; Conditions</a>
+          <a href="Cookies.dc.html" style="transition:color .25s" style-hover="color:#F4F2F2">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  setRoot = (el) => { this.root = el; };
+
+  componentDidMount() {
+    const io = new IntersectionObserver((ents) => {
+      ents.forEach((e) => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          const d = parseFloat(el.getAttribute('data-reveal-delay') || '0');
+          el.style.transitionDelay = d + 'ms';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    this.io = io;
+    requestAnimationFrame(() => {
+      if (!this.root) return;
+      this.root.querySelectorAll('[data-reveal]').forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(28px)';
+        el.style.transition = 'opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1)';
+        io.observe(el);
+      });
+    });
+  }
+
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+
+  renderVals() {
+    return {
+      setRoot: this.setRoot,
+      navLinks: [
+        { label: 'Home', href: 'index.html' },
+        { label: 'Services', href: 'Services.dc.html' },
+        { label: 'About', href: 'About.dc.html' },
+        { label: 'Contact', href: 'Contact.dc.html' }
+      ],
+      chips: ['MC# 1596635', 'DOT# 4156576', 'Surety Bonded', 'Cargo Insured'],
+      footServices: [
+        { label: 'Full Truckload', href: 'Services.dc.html#dry-van' },
+        { label: 'LTL', href: 'Services.dc.html#partial-ltl' },
+        { label: 'Expedited', href: 'Services.dc.html#expedited' },
+        { label: 'Intermodal', href: 'Services.dc.html#dry-van' },
+        { label: 'Agent Services', href: 'Services.dc.html#agent-services' }
+      ],
+      footCompany: [
+        { label: 'About Us', href: 'About.dc.html' },
+        { label: 'Why FLS', href: 'index.html#carriers' },
+        { label: 'Careers', href: 'Careers.dc.html' },
+        { label: 'Blog', href: 'Blog.dc.html' },
+        { label: 'Contact', href: 'Contact.dc.html' },
+        { label: 'Consult With Us', href: 'Consult.dc.html' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

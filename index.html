@@ -576,6 +576,19 @@ class Component extends DCLogic {
     this._initGlobe();
     this._restoreHeroVideo();
     this._restoreCtaVideo();
+    this._playStaticHeroVideo();
+  }
+
+  _playStaticHeroVideo() {
+    const v = this.root && this.root.querySelector('#fls-hero-media > video');
+    if (!v) return;
+    v.muted = true;
+    v.loop = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    const tryPlay = () => { const p = v.play && v.play(); if (p && p.catch) p.catch(() => {}); };
+    if (v.readyState >= 3) tryPlay();
+    else v.addEventListener('canplay', tryPlay, { once: true });
   }
 
   componentWillUnmount() {

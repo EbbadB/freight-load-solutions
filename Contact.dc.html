@@ -62,78 +62,84 @@
   </nav>
 
   <!-- ===================== HERO ===================== -->
-  <header data-screen-label="Contact Hero" style="position:relative;padding:clamp(140px,16vw,196px) clamp(16px,2.2vw,34px) clamp(56px,7vw,88px)">
-    <div style="max-width:1600px;margin:0 auto">
-      <div data-reveal="" style="display:inline-flex;align-items:center;gap:9px;font-family:Inter;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(21,21,21,.55);margin-bottom:20px"><span style="width:6px;height:6px;border-radius:50%;background:#FF9E20"></span>Contact Us</div>
-      <h1 data-reveal="" data-reveal-delay="60" style="margin:0;max-width:16ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,5.4vw,74px);line-height:1.02;letter-spacing:-.03em;color:#1D2128">We Pick Up. Usually Before the Second Ring.</h1>
-      <p data-reveal="" data-reveal-delay="120" style="margin:22px 0 0;max-width:58ch;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:rgba(21,21,21,.66)">One call or one form — a real person from Pittsburgh gets back to you within 2 hours. No bots, no ticket queues, no runaround.</p>
+  <header data-screen-label="Contact Hero" style="position:relative;padding:clamp(140px,16vw,196px) clamp(16px,2.2vw,34px) clamp(56px,7vw,88px);overflow:hidden;background:#1D2128">
+    <div id="fls-hero-media" style="position:absolute;inset:0;overflow:hidden">
+      <video autoplay muted loop playsinline poster="./cta-video-poster.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+        <source src="./cta-video.mp4" type="video/mp4">
+      </video>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,9,11,.62) 0%,rgba(8,9,11,.5) 40%,rgba(8,9,11,.8) 100%)"></div>
+    </div>
+    <div style="position:relative;max-width:1600px;margin:0 auto">
+      <div data-reveal="" style="display:inline-flex;align-items:center;gap:9px;font-family:Inter;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:rgba(237,237,237,.8);margin-bottom:20px"><span style="width:6px;height:6px;border-radius:50%;background:#FF9E20"></span>Contact Us</div>
+      <h1 data-reveal="" data-reveal-delay="60" style="margin:0;max-width:16ch;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,5.4vw,74px);line-height:1.02;letter-spacing:-.03em;color:#FFFFFF;text-shadow:0 4px 32px rgba(0,0,0,.4)">We Pick Up. Usually Before the Second Ring.</h1>
+      <p data-reveal="" data-reveal-delay="120" style="margin:22px 0 0;max-width:58ch;font-size:clamp(16px,1.4vw,19px);line-height:1.6;color:rgba(237,237,237,.78)">One call or one form — a real person from Pittsburgh gets back to you within 2 hours. No bots, no ticket queues, no runaround.</p>
       <div data-reveal="" data-reveal-delay="180" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:34px">
-        <a href="tel:4122122243" data-card="" style="display:flex;flex-direction:column;gap:6px;padding:20px 22px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(21,21,21,.1);transition:border-color .25s" style-hover="border-color:#FF9E20">
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Call direct</span>
+        <a href="tel:4122122243" data-card="" style="display:flex;flex-direction:column;gap:6px;padding:20px 22px;border-radius:14px;background:rgba(237,237,237,.08);backdrop-filter:blur(10px);border:1px solid rgba(237,237,237,.18);transition:border-color .25s;color:#F4F2F2" style-hover="border-color:#FF9E20">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(237,237,237,.6)">Call direct</span>
           <span style="font-family:'Overused Grotesk',sans-serif;font-size:22px;letter-spacing:-.015em">412-212-2243</span>
         </a>
-        <a href="mailto:info@freightloadsolutions.com" data-card="" style="display:flex;flex-direction:column;gap:6px;padding:20px 22px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(21,21,21,.1);transition:border-color .25s" style-hover="border-color:#FF9E20">
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Email us</span>
+        <a href="mailto:info@freightloadsolutions.com" data-card="" style="display:flex;flex-direction:column;gap:6px;padding:20px 22px;border-radius:14px;background:rgba(237,237,237,.08);backdrop-filter:blur(10px);border:1px solid rgba(237,237,237,.18);transition:border-color .25s;color:#F4F2F2" style-hover="border-color:#FF9E20">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(237,237,237,.6)">Email us</span>
           <span style="font-family:'Overused Grotesk',sans-serif;font-size:19px;letter-spacing:-.01em">info@freightloadsolutions.com</span>
         </a>
-        <a href="https://maps.google.com/?q=3707+Forbes+Ave+Pittsburgh+PA+15213" data-card="" style="display:flex;flex-direction:column;gap:6px;padding:20px 22px;border-radius:14px;background:#FFFFFF;border:1px solid rgba(21,21,21,.1);transition:border-color .25s" style-hover="border-color:#FF9E20">
-          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Pittsburgh, PA</span>
+        <a href="https://maps.google.com/?q=3707+Forbes+Ave+Pittsburgh+PA+15213" data-card="" style="display:flex;flex-direction:column;gap:6px;padding:20px 22px;border-radius:14px;background:rgba(237,237,237,.08);backdrop-filter:blur(10px);border:1px solid rgba(237,237,237,.18);transition:border-color .25s;color:#F4F2F2" style-hover="border-color:#FF9E20">
+          <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(237,237,237,.6)">Pittsburgh, PA</span>
           <span style="font-family:'Overused Grotesk',sans-serif;font-size:19px;letter-spacing:-.01em">3707 Forbes Ave, 15213</span>
         </a>
       </div>
-      <p data-reveal="" data-reveal-delay="240" style="margin:24px 0 0;font-size:13px;color:rgba(21,21,21,.5)"><strong style="color:#1D2128">Mon–Fri, 8am–6pm ET</strong> — available outside hours for urgent loads · MC# 1596635 · DOT# 4156576 · Surety Bonded</p>
+      <p data-reveal="" data-reveal-delay="240" style="margin:24px 0 0;font-size:13px;color:rgba(237,237,237,.65)"><strong style="color:#F4F2F2">Mon–Fri, 8am–6pm ET</strong> — available outside hours for urgent loads · MC# 1596635 · DOT# 4156576 · Surety Bonded</p>
     </div>
   </header>
 
   <!-- ===================== CONTACT DETAILS + FORM ===================== -->
-  <section id="callback" data-screen-label="Contact Form" style="background:#FFFFFF;padding:0 clamp(16px,2.2vw,34px) clamp(64px,9vw,120px)">
-    <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(32px,4vw,64px);align-items:start">
+  <section id="callback" data-screen-label="Contact Form" style="background:#FFFFFF;padding:0 clamp(16px,2.2vw,34px) clamp(80px,11vw,140px)">
+    <div style="max-width:1600px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,6vw,88px);align-items:start">
       <div data-reveal="">
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <div data-card="" style="padding:20px 22px;border-radius:14px;background:#F4F2F2;border:1px solid rgba(21,21,21,.08)">
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div data-card="" style="padding:26px 28px;border-radius:14px;background:#F4F2F2;border:1px solid rgba(21,21,21,.08)">
             <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Phone</span>
-            <div style="margin-top:6px;font-family:'Overused Grotesk',sans-serif;font-size:20px;letter-spacing:-.01em"><a href="tel:4122122243">412-212-2243</a></div>
-            <div style="margin-top:4px;font-size:13px;color:rgba(21,21,21,.5)">Mon–Fri · 8am–6pm ET</div>
+            <div style="margin-top:8px;font-family:'Overused Grotesk',sans-serif;font-size:22px;letter-spacing:-.01em"><a href="tel:4122122243">412-212-2243</a></div>
+            <div style="margin-top:6px;font-size:13px;color:rgba(21,21,21,.5)">Mon–Fri · 8am–6pm ET</div>
           </div>
-          <div data-card="" style="padding:20px 22px;border-radius:14px;background:#F4F2F2;border:1px solid rgba(21,21,21,.08)">
+          <div data-card="" style="padding:26px 28px;border-radius:14px;background:#F4F2F2;border:1px solid rgba(21,21,21,.08)">
             <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Email</span>
-            <div style="margin-top:6px;font-family:'Overused Grotesk',sans-serif;font-size:18px;letter-spacing:-.01em"><a href="mailto:info@freightloadsolutions.com">info@freightloadsolutions.com</a></div>
-            <div style="margin-top:4px;font-size:13px;color:rgba(21,21,21,.5)">Response within 2 hours</div>
+            <div style="margin-top:8px;font-family:'Overused Grotesk',sans-serif;font-size:19px;letter-spacing:-.01em"><a href="mailto:info@freightloadsolutions.com">info@freightloadsolutions.com</a></div>
+            <div style="margin-top:6px;font-size:13px;color:rgba(21,21,21,.5)">Response within 2 hours</div>
           </div>
-          <div data-card="" style="padding:20px 22px;border-radius:14px;background:#F4F2F2;border:1px solid rgba(21,21,21,.08)">
+          <div data-card="" style="padding:26px 28px;border-radius:14px;background:#F4F2F2;border:1px solid rgba(21,21,21,.08)">
             <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Office Address</span>
-            <div style="margin-top:6px;font-size:16px;line-height:1.5">3707 Forbes Ave<br>Pittsburgh, PA 15213</div>
-            <a href="https://maps.google.com/?q=3707+Forbes+Ave+Pittsburgh+PA+15213" style="display:inline-block;margin-top:8px;font-size:13px;color:#215E61;border-bottom:1px solid rgba(33,94,97,.4)">Get directions</a>
+            <div style="margin-top:8px;font-size:16px;line-height:1.5">3707 Forbes Ave<br>Pittsburgh, PA 15213</div>
+            <a href="https://maps.google.com/?q=3707+Forbes+Ave+Pittsburgh+PA+15213" style="display:inline-block;margin-top:10px;font-size:13px;color:#215E61;border-bottom:1px solid rgba(33,94,97,.4)">Get directions</a>
           </div>
-          <div data-card="" style="padding:20px 22px;border-radius:14px;background:#F4F2F2;border:1px solid rgba(21,21,21,.08)">
+          <div data-card="" style="padding:26px 28px;border-radius:14px;background:#F4F2F2;border:1px solid rgba(21,21,21,.08)">
             <span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Credentials</span>
-            <div style="margin-top:6px;font-size:15px;line-height:1.7;color:rgba(21,21,21,.72)">MC# 1596635<br>DOT# 4156576<br>Surety Bonded<br>Cargo Insured</div>
+            <div style="margin-top:8px;font-size:15px;line-height:1.8;color:rgba(21,21,21,.72)">MC# 1596635<br>DOT# 4156576<br>Surety Bonded<br>Cargo Insured</div>
           </div>
         </div>
       </div>
 
-      <div data-reveal="" data-reveal-delay="100" style="background:#F4F2F2;border:1px solid rgba(21,21,21,.08);border-radius:14px;padding:clamp(26px,2.8vw,42px);position:relative;overflow:hidden">
+      <div data-reveal="" data-reveal-delay="100" style="background:#F4F2F2;border:1px solid rgba(21,21,21,.08);border-radius:16px;padding:clamp(36px,4vw,56px);position:relative;overflow:hidden">
         <div data-form-panel="">
           <h3 style="margin:0;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(22px,2.2vw,28px);letter-spacing:-.02em">Request a Callback</h3>
-          <p style="margin:10px 0 26px;font-size:15px;line-height:1.55;color:rgba(21,21,21,.56)">Tell us who you are — we'll match you with the right person on our team.</p>
-          <div style="display:flex;gap:8px;margin-bottom:22px">
-            <button onClick="{{ selectRole }}" data-role="Shipper" style="flex:1;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:12px;border-radius:8px;border:1px solid rgba(21,21,21,.14);background:#FF9E20;color:#1D2128;cursor:pointer;transition:background .2s,color .2s">Shipper</button>
-            <button onClick="{{ selectRole }}" data-role="Carrier" style="flex:1;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:12px;border-radius:8px;border:1px solid rgba(21,21,21,.14);background:transparent;color:rgba(21,21,21,.66);cursor:pointer;transition:background .2s,color .2s" style-hover="background:rgba(21,21,21,.06)">Carrier</button>
-            <button onClick="{{ selectRole }}" data-role="Agent" style="flex:1;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:12px;border-radius:8px;border:1px solid rgba(21,21,21,.14);background:transparent;color:rgba(21,21,21,.66);cursor:pointer;transition:background .2s,color .2s" style-hover="background:rgba(21,21,21,.06)">Agent</button>
+          <p style="margin:12px 0 30px;font-size:15px;line-height:1.55;color:rgba(21,21,21,.56)">Tell us who you are — we'll match you with the right person on our team.</p>
+          <div style="display:flex;gap:8px;margin-bottom:26px">
+            <button onClick="{{ selectRole }}" data-role="Shipper" style="flex:1;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:13px;border-radius:8px;border:1px solid rgba(21,21,21,.14);background:#FF9E20;color:#1D2128;cursor:pointer;transition:background .2s,color .2s">Shipper</button>
+            <button onClick="{{ selectRole }}" data-role="Carrier" style="flex:1;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:13px;border-radius:8px;border:1px solid rgba(21,21,21,.14);background:transparent;color:rgba(21,21,21,.66);cursor:pointer;transition:background .2s,color .2s" style-hover="background:rgba(21,21,21,.06)">Carrier</button>
+            <button onClick="{{ selectRole }}" data-role="Agent" style="flex:1;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:13px;border-radius:8px;border:1px solid rgba(21,21,21,.14);background:transparent;color:rgba(21,21,21,.66);cursor:pointer;transition:background .2s,color .2s" style-hover="background:rgba(21,21,21,.06)">Agent</button>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-            <label style="display:flex;flex-direction:column;gap:7px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">First Name</span><input ref="{{ setFirstName }}" type="text" required="" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:13px 14px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
-            <label style="display:flex;flex-direction:column;gap:7px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Last Name</span><input ref="{{ setLastName }}" type="text" required="" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:13px 14px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+            <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">First Name</span><input ref="{{ setFirstName }}" type="text" required="" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:15px 16px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
+            <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Last Name</span><input ref="{{ setLastName }}" type="text" required="" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:15px 16px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
           </div>
-          <label style="display:flex;flex-direction:column;gap:7px;margin-top:14px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Company</span><input ref="{{ setCompany }}" type="text" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:13px 14px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
-            <label style="display:flex;flex-direction:column;gap:7px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Email Address</span><input ref="{{ setEmail }}" type="email" required="" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:13px 14px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
-            <label style="display:flex;flex-direction:column;gap:7px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Phone Number</span><input ref="{{ setPhone }}" type="tel" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:13px 14px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
+          <label style="display:flex;flex-direction:column;gap:8px;margin-top:18px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Company</span><input ref="{{ setCompany }}" type="text" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:15px 16px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px">
+            <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Email Address</span><input ref="{{ setEmail }}" type="email" required="" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:15px 16px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
+            <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">Phone Number</span><input ref="{{ setPhone }}" type="tel" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:15px 16px;color:#1D2128;font-family:inherit;font-size:15px;transition:border-color .2s" style-focus="border-color:#FF9E20"></label>
           </div>
-          <label style="display:flex;flex-direction:column;gap:7px;margin-top:14px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">What Do You Need?</span><textarea ref="{{ setNotes }}" rows="3" placeholder="Tell us about your freight" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:13px 14px;color:#1D2128;font-family:inherit;font-size:15px;resize:vertical;transition:border-color .2s" style-focus="border-color:#FF9E20"></textarea></label>
-          <button onClick="{{ submitCallback }}" disabled="{{ submitting }}" style="width:100%;margin-top:22px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:15px;border:none;border-radius:8px;background:#1D2128;color:#F4F2F2;cursor:pointer;transition:transform .25s,box-shadow .25s;opacity:{{ submitOpacity }}" style-hover="transform:translateY(-2px);box-shadow:0 14px 34px rgba(29,33,40,.25)">{{ submitLabel }}</button>
+          <label style="display:flex;flex-direction:column;gap:8px;margin-top:18px"><span style="font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,21,21,.5)">What Do You Need?</span><textarea ref="{{ setNotes }}" rows="3" placeholder="Tell us about your freight" style="background:#FFFFFF;border:1px solid rgba(21,21,21,.14);border-radius:8px;padding:15px 16px;color:#1D2128;font-family:inherit;font-size:15px;resize:vertical;transition:border-color .2s" style-focus="border-color:#FF9E20"></textarea></label>
+          <button onClick="{{ submitCallback }}" disabled="{{ submitting }}" style="width:100%;margin-top:26px;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:16px;border:none;border-radius:8px;background:#1D2128;color:#F4F2F2;cursor:pointer;transition:transform .25s,box-shadow .25s;opacity:{{ submitOpacity }}" style-hover="transform:translateY(-2px);box-shadow:0 14px 34px rgba(29,33,40,.25)">{{ submitLabel }}</button>
           <sc-if value="{{ errorMsg }}"><p style="margin:12px 0 0;font-size:13px;line-height:1.5;color:#B3261E">{{ errorMsg }}</p></sc-if>
-          <p style="margin:14px 0 0;font-size:12px;line-height:1.5;color:rgba(21,21,21,.46)">We respond within 2 hours during business hours. For urgent loads, call us directly.</p>
+          <p style="margin:16px 0 0;font-size:12px;line-height:1.5;color:rgba(21,21,21,.46)">We respond within 2 hours during business hours. For urgent loads, call us directly.</p>
         </div>
         <div data-thank-you="" style="display:none;flex-direction:column;align-items:flex-start;gap:14px;padding:20px 0">
           <div style="width:48px;height:48px;border-radius:50%;background:#FF9E20;color:#1D2128;display:flex;align-items:center;justify-content:center;font-size:22px">✓</div>
@@ -145,7 +151,7 @@
   </section>
 
   <!-- ===================== MARQUEE ===================== -->
-  <section data-screen-label="Marquee" style="background:#FF9E20;color:#1D2128;padding:clamp(40px,6vw,72px) 0;overflow:hidden">
+  <section data-screen-label="Marquee" style="background:#FF9E20;color:#1D2128;padding:clamp(64px,9vw,110px) 0;overflow:hidden">
     <div style="display:flex;width:max-content;animation:fls-marquee 30s linear infinite">
       <span style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,7vw,110px);line-height:1;letter-spacing:-.04em;white-space:nowrap;padding-right:.4em">Don't let your freight sit. Call us now. —&nbsp;</span>
       <span aria-hidden="true" style="font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(36px,7vw,110px);line-height:1;letter-spacing:-.04em;white-space:nowrap;padding-right:.4em">Don't let your freight sit. Call us now. —&nbsp;</span>
@@ -243,6 +249,19 @@ class Component extends DCLogic {
         io.observe(el);
       });
     });
+    this._playStaticVideo('#fls-hero-media > video');
+  }
+
+  _playStaticVideo(selector) {
+    const v = this.root && this.root.querySelector(selector);
+    if (!v) return;
+    v.muted = true;
+    v.loop = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    const tryPlay = () => { const p = v.play && v.play(); if (p && p.catch) p.catch(() => {}); };
+    if (v.readyState >= 3) tryPlay();
+    else v.addEventListener('canplay', tryPlay, { once: true });
   }
 
   componentWillUnmount() { if (this.io) this.io.disconnect(); }

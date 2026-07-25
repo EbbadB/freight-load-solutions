@@ -38,10 +38,10 @@
     .fls-nav-links a{padding:13px 10px!important}
     .fls-faq-grid{grid-template-columns:1fr!important}
   }
-</style>
+.fls-page>section{margin-top:clamp(16px,3vw,32px)}.fls-page>footer{margin-top:clamp(20px,3.5vw,36px)}</style>
 </helmet>
 
-<div ref="{{ setRoot }}" style="overflow-x:hidden;background:#F4F2F2">
+<div ref="{{ setRoot }}" class="fls-page" style="overflow-x:hidden;background:#F4F2F2">
 
   <!-- ===================== NAV ===================== -->
   <nav data-screen-label="Nav" style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;flex-wrap:wrap;row-gap:8px;align-items:center;justify-content:space-between;gap:20px;padding:14px clamp(16px,2.2vw,34px);background:rgba(29,33,40,.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(237,237,237,.09)">

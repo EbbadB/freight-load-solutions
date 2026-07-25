@@ -130,16 +130,17 @@
         </div>
       </div>
     </div>
-    <div data-track="svc" style="display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;align-items:stretch;scroll-snap-type:x mandatory;padding:0 max(clamp(16px,2.2vw,34px),calc((100vw - 1600px)/2 + clamp(16px,2.2vw,34px))) 6px">
+    <div data-track="svc" style="display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;align-items:stretch;scroll-snap-type:x mandatory;padding:0 max(clamp(16px,2.2vw,34px),calc((100vw - 1600px)/2 + clamp(16px,2.2vw,34px))) 6px">
       <sc-for list="{{ services }}" as="sv" hint-placeholder-count="4">
-        <div data-card="" data-reveal="" style="flex: none; scroll-snap-align: start; width: min(430px,84vw); position: relative; height: 520px; border-radius: 13px; overflow: hidden; background: #1D2128; transition: transform .4s,box-shadow .4s" style-hover="transform:translateY(-6px);box-shadow:0 26px 60px rgba(21,21,21,.3)">
-          <image-slot id="{{ sv.slotId }}" src="{{ sv.img }}" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
-          <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(21,21,21,.94) 0%,rgba(21,21,21,.45) 44%,rgba(21,21,21,0) 100%);pointer-events:none"></div>
-          <div style="position:absolute;top:20px;left:20px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#F4F2F2;background:#215E61;padding:7px 12px;border-radius:100px;pointer-events:none">{{ sv.tag }}</div>
-          <div style="position:absolute;left:0;right:0;bottom:0;padding:28px;color:#F4F2F2;pointer-events:none">
-            <h3 style="margin:0;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:clamp(24px,2vw,30px);letter-spacing:-.02em">{{ sv.title }}</h3>
-            <p style="margin:12px 0 0;font-size:15px;line-height:1.55;color:rgba(237,237,237,.74)">{{ sv.body }}</p>
-            <a href="{{ sv.href }}" style="pointer-events:auto;display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#F4F2F2;transition:gap .25s" style-hover="gap:14px">Learn more →</a>
+        <div data-card="" data-reveal="" style="flex: none; scroll-snap-align: start; width: 240px; display: flex; flex-direction: column">
+          <div style="position:relative;width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#e7e3e3">
+            <image-slot id="{{ sv.slotId }}" src="{{ sv.img }}" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+            <div style="position:absolute;top:12px;left:12px;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#F4F2F2;background:#215E61;padding:5px 10px;border-radius:100px;pointer-events:none">{{ sv.tag }}</div>
+          </div>
+          <div style="padding-top:16px">
+            <h3 style="margin:0;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:19px;letter-spacing:-.015em;color:#1D2128">{{ sv.title }}</h3>
+            <p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:rgba(21,21,21,.6)">{{ sv.body }}</p>
+            <a href="{{ sv.href }}" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#215E61;transition:gap .2s" style-hover="gap:10px">Learn more →</a>
           </div>
         </div>
       </sc-for>

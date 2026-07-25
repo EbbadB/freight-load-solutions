@@ -124,26 +124,23 @@
     <div style="max-width:1600px;margin:0 auto;padding:0 clamp(16px,2.2vw,34px)">
       <div data-reveal="" style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 28px">
         <div style="font-family: Inter; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; color: #151515; display: flex; align-items: center; gap: 10px; font-weight: 600">Our Services</div>
-        <div style="display:flex;gap:10px">
-          <button onClick="{{ prevSvc }}" aria-label="Previous" style="width:46px;height:46px;border-radius:100px;border:1px solid rgba(21,21,21,.24);background:transparent;color:#1D2128;font-size:16px;cursor:pointer;transition:background .25s,color .25s" style-hover="background:#FF9E20;color:#1D2128">←</button>
-          <button onClick="{{ nextSvc }}" aria-label="Next" style="width:46px;height:46px;border-radius:100px;border:1px solid rgba(21,21,21,.24);background:transparent;color:#1D2128;font-size:16px;cursor:pointer;transition:background .25s,color .25s" style-hover="background:#FF9E20;color:#1D2128">→</button>
-        </div>
       </div>
-    </div>
-    <div data-track="svc" style="display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;align-items:stretch;scroll-snap-type:x mandatory;padding:0 max(clamp(16px,2.2vw,34px),calc((100vw - 1600px)/2 + clamp(16px,2.2vw,34px))) 6px">
-      <sc-for list="{{ services }}" as="sv" hint-placeholder-count="4">
-        <div data-card="" data-reveal="" style="flex: none; scroll-snap-align: start; width: 240px; display: flex; flex-direction: column">
-          <div style="position:relative;width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#e7e3e3">
-            <image-slot id="{{ sv.slotId }}" src="{{ sv.img }}" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
-            <div style="position:absolute;top:12px;left:12px;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#F4F2F2;background:#215E61;padding:5px 10px;border-radius:100px;pointer-events:none">{{ sv.tag }}</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
+        <sc-for list="{{ services }}" as="sv" hint-placeholder-count="4">
+          <div data-card="" data-reveal="" style="display:flex;flex-direction:column;background:#FFFFFF;border-radius:16px;box-shadow:0 1px 2px rgba(21,21,21,.04),0 12px 28px rgba(21,21,21,.07);overflow:hidden">
+            <div style="position:relative;margin:16px 16px 0;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#e7e3e3">
+              <image-slot id="{{ sv.slotId }}" src="{{ sv.img }}" shape="rect" placeholder="Click or drop a photo" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+              <div style="position:absolute;top:12px;left:12px;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#F4F2F2;background:#215E61;padding:5px 10px;border-radius:100px;pointer-events:none">{{ sv.tag }}</div>
+              <div style="position:absolute;left:0;right:0;bottom:0;height:44%;background:linear-gradient(0deg,#FFFFFF 0%,rgba(255,255,255,0) 100%);pointer-events:none"></div>
+            </div>
+            <div style="padding:14px 20px 22px">
+              <h3 style="margin:0;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:20px;letter-spacing:-.015em;color:#1D2128">{{ sv.title }}</h3>
+              <p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:rgba(21,21,21,.6)">{{ sv.body }}</p>
+              <a href="tel:4122122243" style="display:inline-flex;align-items:center;gap:10px;margin-top:16px;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:6px 6px 6px 18px;border-radius:100px;background:#1D2128;color:#FFFFFF;transition:transform .2s" style-hover="transform:translateY(-2px)">{{ sv.cta }}<span style="width:26px;height:26px;border-radius:50%;background:#FF9E20;color:#1D2128;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">→</span></a>
+            </div>
           </div>
-          <div style="padding-top:16px">
-            <h3 style="margin:0;font-family:'Overused Grotesk',sans-serif;font-weight:400;font-size:19px;letter-spacing:-.015em;color:#1D2128">{{ sv.title }}</h3>
-            <p style="margin:8px 0 0;font-size:14px;line-height:1.5;color:rgba(21,21,21,.6)">{{ sv.body }}</p>
-            <a href="{{ sv.href }}" style="display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#215E61;transition:gap .2s" style-hover="gap:10px">Learn more →</a>
-          </div>
-        </div>
-      </sc-for>
+        </sc-for>
+      </div>
     </div>
   </section>
 
@@ -943,10 +940,10 @@ class Component extends DCLogic {
       chips: ['MC# 1596635', 'DOT# 4156576', 'Surety Bonded', 'Cargo Insured'],
 
       services: [
-        { tag: 'Core Service', title: 'Dry Van', body: 'Vetted carriers across 48 states. One dedicated contact per load, real-time tracking, no surprises.', href: 'Services.dc.html#dry-van', slotId: 'svc-dry-van', img: 'svc-dry-van.jpg' },
-        { tag: 'Flexible', title: 'Partial / LTL', body: 'Pay only for the space you use. Same visibility and accountability as full truckload.', href: 'Services.dc.html#partial-ltl', slotId: 'svc-partial-ltl', img: 'svc-partial-ltl.jpg' },
-        { tag: 'Time-Critical', title: 'Expedited Freight', body: "Network activates in hours, not days. Team drivers available. We don't clock out when it matters.", href: 'Services.dc.html#expedited', slotId: 'svc-expedited', img: 'svc-expedited.jpg' },
-        { tag: 'For Agents', title: 'Agent Services', body: 'Plug into our carrier network and back office. You build relationships — we handle the rest.', href: 'Services.dc.html#agent-services', slotId: 'svc-agent', img: 'svc-agent.jpg' }
+        { tag: 'Core Service', title: 'Dry Van', body: 'Vetted carriers across 48 states. One dedicated contact per load, real-time tracking, no surprises.', href: 'Services.dc.html#dry-van', slotId: 'svc-dry-van', img: 'svc-dry-van.jpg', cta: 'Get a Dry Van Rate' },
+        { tag: 'Flexible', title: 'Partial / LTL', body: 'Pay only for the space you use. Same visibility and accountability as full truckload.', href: 'Services.dc.html#partial-ltl', slotId: 'svc-partial-ltl', img: 'svc-partial-ltl.jpg', cta: 'Get an LTL Rate' },
+        { tag: 'Time-Critical', title: 'Expedited Freight', body: "Network activates in hours, not days. Team drivers available. We don't clock out when it matters.", href: 'Services.dc.html#expedited', slotId: 'svc-expedited', img: 'svc-expedited.jpg', cta: 'Get an Expedited Rate' },
+        { tag: 'For Agents', title: 'Agent Services', body: 'Plug into our carrier network and back office. You build relationships — we handle the rest.', href: 'Services.dc.html#agent-services', slotId: 'svc-agent', img: 'svc-agent.jpg', cta: 'Talk to Our Team' }
       ],
 
       logos: ['Packaging Manufacturers', 'Corrugated Box Producers', 'Paper Mills', 'Industrial Shippers', 'Dry Van Carriers', 'Food & Beverage Companies', 'Consumer Goods Distributors', 'Manufacturing Plants', 'Warehouse Operators', 'Freight Agents'],
